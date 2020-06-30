@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: https://nova-me.github.io/sitemap.xml
