@@ -1,24 +1,106 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://nova-me.github.io</id>
-    <title>林间小筑</title>
-    <updated>2021-08-01T11:30:21.763Z</updated>
-    <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://nova-me.github.io"/>
-    <link rel="self" href="https://nova-me.github.io/atom.xml"/>
-    <subtitle>The road is life.</subtitle>
-    <logo>https://nova-me.github.io/images/avatar.png</logo>
-    <icon>https://nova-me.github.io/favicon.ico</icon>
-    <rights>All rights reserved 2021, 林间小筑</rights>
-    <entry>
-        <title type="html"><![CDATA[Java并发总结（一）]]></title>
-        <id>https://nova-me.github.io/post/Java-concurrent/</id>
-        <link href="https://nova-me.github.io/post/Java-concurrent/">
-        </link>
-        <updated>2019-03-21T08:12:35.000Z</updated>
-        <summary type="html"><![CDATA[<p>本文只是对Java并发知识的一个总结, Java并发是一个很难的问题，不是一篇博文能够说清，以后还需在实践中多多积累学习才是。</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>本文只是对Java并发知识的一个总结, Java并发是一个很难的问题，不是一篇博文能够说清，以后还需在实践中多多积累学习才是。</p>
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Java并发总结（一） | 林间小筑</title>
+<link rel="shortcut icon" href="https://nova-me.github.io/favicon.ico?v=1627817416240">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://nova-me.github.io/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="Java并发总结（一） | 林间小筑 - Atom Feed" href="https://nova-me.github.io/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="本文只是对Java并发知识的一个总结, Java并发是一个很难的问题，不是一篇博文能够说清，以后还需在实践中多多积累学习才是。
+
+多线程的概念
+多线程程序在较低的层次上扩展了多任务的概念：一个程序同时执行多个任务。通常，
+每一个任务称为一个..." />
+    <meta name="keywords" content="Java" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://nova-me.github.io">
+  <img class="avatar" src="https://nova-me.github.io/images/avatar.png?v=1627817416240" alt="">
+  </a>
+  <h1 class="site-title">
+    林间小筑
+  </h1>
+  <p class="site-description">
+    The road is life.
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+        <a href="https://github.com/nova-me" target="_blank">
+          <i class="ri-github-line"></i>
+        </a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              Java并发总结（一）
+            </h2>
+            <div class="post-info">
+              <span>
+                2019-03-21
+              </span>
+              <span>
+                8 min read
+              </span>
+              
+                <a href="https://nova-me.github.io/tag/java/" class="post-tag">
+                  # Java
+                </a>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <p>本文只是对Java并发知识的一个总结, Java并发是一个很难的问题，不是一篇博文能够说清，以后还需在实践中多多积累学习才是。</p>
 <!-- more -->
 <h2 id="多线程的概念">多线程的概念</h2>
 <p>多线程程序在较低的层次上扩展了多任务的概念：一个程序同时执行多个任务。通常，<br>
@@ -234,19 +316,121 @@ synchronized 中的锁是非公平的，ReentrantLock 默认情况下也是非�
 </ul>
 <h2 id="小结">小结</h2>
 <p>这次总结了线程的基本概念，以及锁的运用，下次介绍下Java并发编程的工具箱😄</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[序]]></title>
-        <id>https://nova-me.github.io/post/xu/</id>
-        <link href="https://nova-me.github.io/post/xu/">
-        </link>
-        <updated>2018-12-11T16:00:00.000Z</updated>
-        <summary type="html"><![CDATA[<p>很早之前就一直想写博客，总是因为不够自律而不断耽搁，之前也学习过很多东西并未总结，过段时间，自然就淡了，希望从这里开始自己的博客之旅吧。</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>很早之前就一直想写博客，总是因为不够自律而不断耽搁，之前也学习过很多东西并未总结，过段时间，自然就淡了，希望从这里开始自己的博客之旅吧。</p>
-<!-- more -->
-<p>加油，不算年轻的年轻人！😄</p>
-]]></content>
-    </entry>
-</feed>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%9A%84%E6%A6%82%E5%BF%B5">多线程的概念</a></li>
+<li><a href="#%E7%BA%BF%E7%A8%8B%E7%8A%B6%E6%80%81">线程状态</a></li>
+<li><a href="#%E7%BA%BF%E7%A8%8B%E5%B1%9E%E6%80%A7">线程属性</a>
+<ul>
+<li><a href="#%E4%BC%98%E5%85%88%E7%BA%A7">优先级</a></li>
+<li><a href="#%E5%AE%88%E6%8A%A4%E7%BA%BF%E7%A8%8B">守护线程</a></li>
+</ul>
+</li>
+<li><a href="#%E7%BA%BF%E7%A8%8B%E5%88%9B%E5%BB%BA%E6%96%B9%E5%BC%8F">线程创建方式</a></li>
+<li><a href="#%E7%BA%BF%E7%A8%8B%E6%B1%A0">线程池</a>
+<ul>
+<li><a href="#executor%E7%9A%84%E7%B1%BB%E5%9E%8B">Executor的类型</a></li>
+<li><a href="#executor%E7%9A%84%E4%B8%AD%E6%96%AD%E6%93%8D%E4%BD%9C">Executor的中断操作</a></li>
+</ul>
+</li>
+<li><a href="#%E5%90%8C%E6%AD%A5">同步</a>
+<ul>
+<li><a href="#synchronized-lock-reentrantlock">Synchronized / Lock / ReentrantLock</a><br>
+*
+<ul>
+<li><a href="#synchronized">Synchronized</a></li>
+<li><a href="#reentrantlock">ReentrantLock</a></li>
+<li><a href="#%E6%AF%94%E8%BE%83">比较</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#%E7%BA%BF%E7%A8%8B%E4%B9%8B%E9%97%B4%E7%9A%84%E5%8D%8F%E4%BD%9C">线程之间的协作</a>
+<ul>
+<li><a href="#join">join()</a></li>
+<li><a href="#wait-notify-notifyall">wait()  / notify() /  notifyAll()</a></li>
+<li><a href="#wait-%E5%92%8C-sleep-%E7%9A%84%E5%8C%BA%E5%88%AB">wait() 和 sleep() 的区别</a></li>
+<li><a href="#await-signal-signalall">await() signal() signalAll()</a></li>
+</ul>
+</li>
+<li><a href="#%E5%B0%8F%E7%BB%93">小结</a></li>
+</ul>
+</li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://nova-me.github.io/post/xu/">
+              <h3 class="post-title">
+                序
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  <p id="hitokoto"><a href="#" id="hitokoto_text">:D获取中...</a></p>
+<script src="https://v1.hitokoto.cn/?encode=js&select=%23hitokoto" defer></script>
+
+  <a class="rss" href="https://nova-me.github.io/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>
