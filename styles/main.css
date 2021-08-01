@@ -897,82 +897,93 @@ td {
   align-items: center;
   margin-left: 24px;
 }
-.hljs {
+pre code.hljs {
   display: block;
   overflow-x: auto;
-  padding: 0.5em;
-  color: #333;
-  background: #f9f7f3;
+  padding: 1em;
 }
-.hljs-comment,
-.hljs-quote {
-  color: #998;
-  font-style: italic;
+code.hljs {
+  padding: 3px 5px;
 }
+/*!
+ * GitHub.com style
+ *
+ * GitHub Light v0.5.0
+ * https://github.com/primer/github-syntax-light
+ */
+.hljs {
+  color: #24292e;
+  background: #fff;
+}
+.hljs-doctag,
 .hljs-keyword,
-.hljs-selector-tag,
-.hljs-subst {
-  color: #333;
-  font-weight: bold;
-}
-.hljs-number,
-.hljs-literal,
-.hljs-variable,
+.hljs-meta .hljs-keyword,
+.hljs-template-tag,
 .hljs-template-variable,
-.hljs-tag .hljs-attr {
-  color: #008080;
+.hljs-type {
+  color: #d73a49;
 }
-.hljs-string,
-.hljs-doctag {
-  color: #d14;
+.hljs-title {
+  color: #6f42c1;
 }
-.hljs-title,
-.hljs-section,
-.hljs-selector-id {
-  color: #900;
-  font-weight: bold;
+.hljs-attr,
+.hljs-attribute,
+.hljs-literal,
+.hljs-meta,
+.hljs-number,
+.hljs-selector-attr,
+.hljs-selector-class,
+.hljs-selector-id,
+.hljs-variable {
+  color: #005cc5;
 }
-.hljs-subst {
-  font-weight: normal;
-}
-.hljs-type,
-.hljs-class .hljs-title {
-  color: #458;
-  font-weight: bold;
-}
-.hljs-tag,
-.hljs-name,
-.hljs-attribute {
-  color: #000080;
-  font-weight: normal;
-}
+.hljs-meta .hljs-string,
 .hljs-regexp,
-.hljs-link {
-  color: #009926;
-}
-.hljs-symbol,
-.hljs-bullet {
-  color: #990073;
+.hljs-string {
+  color: #032f62;
 }
 .hljs-built_in,
-.hljs-builtin-name {
-  color: #0086b3;
+.hljs-class .hljs-title,
+.hljs-symbol,
+.hljs-title.class_ {
+  color: #e36209;
 }
-.hljs-meta {
-  color: #999;
-  font-weight: bold;
+.hljs-code,
+.hljs-comment,
+.hljs-formula {
+  color: #6a737d;
 }
-.hljs-deletion {
-  background: #fdd;
+.hljs-name,
+.hljs-quote,
+.hljs-selector-pseudo,
+.hljs-selector-tag {
+  color: #22863a;
 }
-.hljs-addition {
-  background: #dfd;
+.hljs-subst {
+  color: #24292e;
+}
+.hljs-section {
+  color: #005cc5;
+  font-weight: 700;
+}
+.hljs-bullet {
+  color: #735c0f;
 }
 .hljs-emphasis {
+  color: #24292e;
   font-style: italic;
 }
 .hljs-strong {
-  font-weight: bold;
+  color: #24292e;
+  font-weight: 700;
+}
+.hljs-addition {
+  color: #22863a;
+  background-color: #f0fff4;
+}
+.hljs-deletion {
+  color: #b31d28;
+  background-color: #ffeef0;
 }
 
       .post-detail .post .post-content p {
@@ -997,10 +1008,10 @@ td {
       }
     
       .main {
-        background: #F6F5F0;
+        background: #f8f9fa;
       }
     
       body {
-        background: #F6F5F0;
+        background: #f8f9fa;
       }
     
