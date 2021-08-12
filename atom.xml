@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://nova-me.github.io</id>
     <title>林间小筑</title>
-    <updated>2021-08-01T11:58:58.184Z</updated>
+    <updated>2021-08-11T13:09:36.177Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://nova-me.github.io"/>
     <link rel="self" href="https://nova-me.github.io/atom.xml"/>
@@ -252,7 +252,7 @@ synchronized 中的锁是非公平的，ReentrantLock 默认情况下也是非�
 ]]></summary>
         <content type="html"><![CDATA[<p>The road is life.</p>
 <!-- more -->
-<p>加油吧，年轻人！😄</p>
+<p>加油吧，年轻人！🤓</p>
 ]]></content>
     </entry>
 </feed>
