@@ -1,0 +1,29 @@
+base_url = "https://nova-me.github.io"
+
+compile_sass = true
+
+build_search_index = false
+
+theme = "after-dark"
+
+taxonomies = [
+    # You can enable/disable RSS
+    {name = "categories", feed = true},
+    {name = "tags", feed = true},
+]
+
+[markdown]
+highlight_code = true
+
+highlight_theme = "gruvbox-dark"
+
+render_emoji = true
+
+[extra]
+
+after_dark_menu = [
+    {url = "$BASE_URL", name = "Home"},
+    {url = "$BASE_URL/categories", name = "Categories"},
+    {url = "$BASE_URL/tags", name = "Tags"},
+    {url = "https://google.com", name = "Google"},
+]
