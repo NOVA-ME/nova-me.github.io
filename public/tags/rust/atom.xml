@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+	<title> - Rust</title>
+	<link href="https://nova-me.github.io/tags/rust/atom.xml" rel="self" type="application/atom+xml"/>
+  <link href="https://nova-me.github.io"/>
+	<generator uri="https://www.getzola.org/">Zola</generator>
+	<updated>2021-07-25T00:00:00+00:00</updated>
+	<id>https://nova-me.github.io/tags/rust/atom.xml</id>
+	<entry xml:lang="en">
+		<title>Rust无畏并发</title>
+		<published>2021-07-25T00:00:00+00:00</published>
+		<updated>2021-07-25T00:00:00+00:00</updated>
+		<link href="https://nova-me.github.io/rust-concurrent/" type="text/html"/>
+		<id>https://nova-me.github.io/rust-concurrent/</id>
+		<content type="html">&lt;h2 id=&quot;tokiokuang-jia&quot;&gt;Tokio框架&lt;&#x2F;h2&gt;
+&lt;pre data-lang=&quot;rust&quot; style=&quot;background-color:#282828;color:#fdf4c1aa;&quot; class=&quot;language-rust &quot;&gt;&lt;code class=&quot;language-rust&quot; data-lang=&quot;rust&quot;&gt;&lt;span style=&quot;color:#fa5c4b;&quot;&gt;fn &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8ec07c;&quot;&gt;main&lt;&#x2F;span&gt;&lt;span&gt;(){
+&lt;&#x2F;span&gt;&lt;span&gt;    tokio::spawn(async &lt;&#x2F;span&gt;&lt;span style=&quot;color:#fa5c4b;&quot;&gt;move &lt;&#x2F;span&gt;&lt;span style=&quot;color:#fe8019;&quot;&gt;||&lt;&#x2F;span&gt;&lt;span&gt;{
+&lt;&#x2F;span&gt;&lt;span&gt;        
+&lt;&#x2F;span&gt;&lt;span&gt;    })
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+</content>
+	</entry>
+</feed>

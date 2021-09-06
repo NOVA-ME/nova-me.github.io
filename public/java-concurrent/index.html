@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+      <link rel="shortcut icon" href="https://nova-me.github.io/whatsoo.ico" color="#000000">
+      <title></title>
+
+      
+
+      
+          <link rel="stylesheet" href="https://nova-me.github.io/site.css">
+      
+
+      
+      
+    </head>
+
+    <body class="hack dark main container">
+        
+    
+        
+                
+                    <header>
+                        <nav itemscope itemtype="http://schema.org/SiteNavigationElement">
+                        
+                            <a itemprop="url"
+                               class=""
+                               href="https:&#x2F;&#x2F;nova-me.github.io">
+                                <span itemprop="name">Home
+                                </span></a>
+                        
+                            <a itemprop="url"
+                               class=""
+                               href="https:&#x2F;&#x2F;nova-me.github.io&#x2F;categories">
+                                <span itemprop="name">Categories
+                                </span></a>
+                        
+                            <a itemprop="url"
+                               class=""
+                               href="https:&#x2F;&#x2F;nova-me.github.io&#x2F;tags">
+                                <span itemprop="name">Tags
+                                </span></a>
+                        
+                            <a itemprop="url"
+                               class=""
+                               href="https:&#x2F;&#x2F;github.com&#x2F;nova-me">
+                                <span itemprop="name">Github
+                                </span></a>
+                        
+                        </nav>
+                    </header>
+                
+            
+    
+
+<article itemscope itemtype="http://schema.org/BlogPosting">
+    <header>
+        <h1 itemprop="headline">Java并发总结（一）</h1>
+        <span class="muted">
+    <svg style="margin-bottom:-3px" class="i-clock" viewBox="0 0 32 32"
+         width="16" height="16" fill="none" stroke="currentcolor"
+         stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
+        <circle cx="16" cy="16" r="14"/>
+        <path d="M16 8 L16 16 20 20"/>
+    </svg>
+    <span>10 minute read</span>
+    <svg style="margin-bottom: -3px" class="i-edit" viewBox="0 0 32 32"
+         width="16" height="16" fill="none" stroke="currentcolor"
+         stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
+        <path d="M30 7 L25 2 5 22 3 29 10 27 Z M21 6 L26 11 Z M5 22 L10 27 Z"/>
+    </svg>
+
+    Published: 2019-09-25
+</span>
+    </header>
+    <div itemprop="articleBody">
+      <p>本文只是对Java并发知识的一个总结, Java并发是一个很难的问题，不是一篇博文能够说清，以后还需在实践中多多积累学习才是。</p>
+<span id="continue-reading"></span>
+<h2 id="duo-xian-cheng-de-gai-nian">多线程的概念</h2>
+<p>多线程程序在较低的层次上扩展了多任务的概念：一个程序同时执行多个任务。通常，
+每一个任务称为一个线程（ thread), 它是线程控制的简称。可以同时运行一个以上线程的程
+序称为多线程程序（multithreaded)。
+那么，多进程与多线程有哪些区别呢？ 本质的区别在于每个进程拥有自己的一整套变
+量， 而线程则共享数据。 这听起来似乎有些风险， 的确也是这样， 在本章稍后将可以看到这
+个问题。然而，共享变量使线程之间的通信比进程之间的通信更有效、 更容易。 此外， 在有
+些操作系统中，与进程相比较， 线程更“ 轻量级”， 创建、 撤销一个线程比启动新进程的开
+销要小得多。</p>
+<h2 id="xian-cheng-zhuang-tai">线程状态</h2>
+<p>Java线程包含如下状态：</p>
+<ul>
+<li>new(新创建)</li>
+<li>Runnable(可运行)</li>
+<li>Blocked(被阻塞)</li>
+<li>Waiting(等待)</li>
+<li>Timed waiting(计时等待)</li>
+<li>Terminated(被终止)</li>
+<li><a href="https://docs.oracle.com/javase/9/docs/api/java/lang/Thread.State.html">Java SE9 Enum Thread.State</a></li>
+</ul>
+<h2 id="xian-cheng-shu-xing">线程属性</h2>
+<p>Java线程包含如下属性：</p>
+<ul>
+<li>Priority(优先级)</li>
+<li>Daemon thread(守护线程)</li>
+<li>未捕获异常处理</li>
+</ul>
+<h3 id="you-xian-ji">优先级</h3>
+<pre data-lang="java" style="background-color:#282828;color:#fdf4c1aa;" class="language-java "><code class="language-java" data-lang="java"><span style="color:#fa5c4b;">public final static int </span><span style="color:#fdf4c1;">MIN_PRIORITY </span><span style="color:#fe8019;">= </span><span style="color:#d3869b;">1</span><span>;</span><span>
+</span><span>
+</span><span style="color:#fa5c4b;">public final static int </span><span style="color:#fdf4c1;">NORM_PRIORITY </span><span style="color:#fe8019;">= </span><span style="color:#d3869b;">5</span><span>;</span><span>
+</span><span>
+</span><span style="color:#fa5c4b;">public final static int </span><span style="color:#fdf4c1;">MAX_PRIORITY </span><span style="color:#fe8019;">= </span><span style="color:#d3869b;">10</span><span>;</span><span>
+</span><span>
+</span><span style="color:#fa5c4b;">public final</span><span> void </span><span style="color:#fdf4c1;">setPriority(</span><span style="color:#fa5c4b;">int</span><span style="color:#fdf4c1;"> newPriority) </span><span>{</span><span>
+</span><span>    </span><span style="color:#8ec07c;">ThreadGroup</span><span> g;</span><span>
+</span><span>    </span><span style="color:#fdf4c1;">checkAccess()</span><span>;</span><span>
+</span><span>    </span><span style="color:#fa5c4b;">if </span><span>(newPriority </span><span style="color:#fe8019;">&gt; </span><span style="color:#fdf4c1;">MAX_PRIORITY </span><span style="color:#fe8019;">||</span><span> newPriority </span><span style="color:#fe8019;">&lt; </span><span style="color:#fdf4c1;">MIN_PRIORITY</span><span>) {</span><span>
+</span><span>        </span><span style="color:#fa5c4b;">throw new </span><span style="color:#8ec07c;">IllegalArgumentException</span><span>();</span><span>
+</span><span>    }</span><span>
+</span><span>    </span><span style="color:#fa5c4b;">if </span><span>((g </span><span style="color:#fe8019;">= </span><span style="color:#fdf4c1;">getThreadGroup()</span><span>) </span><span style="color:#fe8019;">!= </span><span style="color:#d3869b;">null</span><span>) {</span><span>
+</span><span>        </span><span style="color:#fa5c4b;">if </span><span>(newPriority </span><span style="color:#fe8019;">&gt;</span><span> g.</span><span style="color:#fdf4c1;">getMaxPriority()</span><span>) {</span><span>
+</span><span>            newPriority </span><span style="color:#fe8019;">=</span><span> g.</span><span style="color:#fdf4c1;">getMaxPriority()</span><span>;</span><span>
+</span><span>        }</span><span>
+</span><span>        </span><span style="color:#fdf4c1;">setPriority0(priority </span><span style="color:#fe8019;">=</span><span style="color:#fdf4c1;"> newPriority)</span><span>;</span><span>
+</span><span>    }</span><span>
+</span><span>}</span><span>
+</span></code></pre>
+<p>Java线程优先级默认值为5，取值区间为1-10的一个整数</p>
+<h3 id="shou-hu-xian-cheng">守护线程</h3>
+<pre data-lang="java" style="background-color:#282828;color:#fdf4c1aa;" class="language-java "><code class="language-java" data-lang="java"><span style="color:#fa5c4b;">public final</span><span> void </span><span style="color:#fdf4c1;">setDaemon(</span><span style="color:#fa5c4b;">boolean</span><span style="color:#fdf4c1;"> on) </span><span>{</span><span>
+</span><span>    </span><span style="color:#fdf4c1;">checkAccess()</span><span>;</span><span>
+</span><span>    </span><span style="color:#fa5c4b;">if </span><span>(</span><span style="color:#fdf4c1;">isAlive()</span><span>) {</span><span>
+</span><span>        </span><span style="color:#fa5c4b;">throw new </span><span style="color:#8ec07c;">IllegalThreadStateException</span><span>();</span><span>
+</span><span>    }</span><span>
+</span><span>    daemon </span><span style="color:#fe8019;">=</span><span> on;</span><span>
+</span><span>}</span><span>
+</span></code></pre>
+<pre data-lang="java" style="background-color:#282828;color:#fdf4c1aa;" class="language-java "><code class="language-java" data-lang="java"><span style="color:#fa5c4b;">public static</span><span> void </span><span style="color:#fdf4c1;">main(</span><span style="color:#8ec07c;">String</span><span style="color:#fa5c4b;">[]</span><span style="color:#fdf4c1;"> args) </span><span>{</span><span>
+</span><span>    </span><span style="color:#8ec07c;">Thread</span><span> thread </span><span style="color:#fe8019;">= </span><span style="color:#fa5c4b;">new </span><span style="color:#8ec07c;">Thread</span><span>(</span><span style="color:#fa5c4b;">new </span><span style="color:#8ec07c;">MyRunnable</span><span>());</span><span>
+</span><span>    thread.</span><span style="color:#fdf4c1;">setDaemon(</span><span style="color:#d3869b;">true</span><span style="color:#fdf4c1;">)</span><span>;</span><span>
+</span><span>}</span><span>
+</span></code></pre>
+<p>守护线程是程序运行时在后台提供服务的线程，不属于程序中不可或缺的部分。</p>
+<p>当所有非守护线程结束时，程序也就终止，同时会杀死所有守护线程。</p>
+<p>main() 属于非守护线程。</p>
+<p>在线程启动之前使用 setDaemon() 方法可以将一个线程设置为守护线程。</p>
+<h2 id="xian-cheng-chuang-jian-fang-shi">线程创建方式</h2>
+<p>有三种使用线程的方式：</p>
+<ul>
+<li>实现Runnable接口</li>
+<li>实现Callable接口</li>
+<li>继承Thread类</li>
+</ul>
+<h2 id="xian-cheng-chi">线程池</h2>
+<h3 id="executorde-lei-xing">Executor的类型</h3>
+<p>Executor 管理多个异步任务的执行，而无需程序员显式地管理线程的生命周期。这里的异步是指多个任务的执行互不干扰，不需要进行同步操作。
+主要有三种Executor：</p>
+<ul>
+<li>CachedThreadPool：一个任务创建一个线程</li>
+<li>FixedThreadPool：所有任务只能使用固定大小的线程</li>
+<li>SingleThreadExecutor：相当于大小为 1 的 FixedThreadPool</li>
+</ul>
+<h3 id="executorde-zhong-duan-cao-zuo">Executor的中断操作</h3>
+<p>调用 Executor 的 shutdown() 方法会等待线程都执行完毕之后再关闭，但是如果调用的是 shutdownNow() 方法，则相当于调用每个线程的 interrupt() 方法</p>
+<pre data-lang="java" style="background-color:#282828;color:#fdf4c1aa;" class="language-java "><code class="language-java" data-lang="java"><span style="color:#fa5c4b;">private static final int </span><span style="color:#fdf4c1;">CORE_POOL_SIZE </span><span style="color:#fe8019;">= </span><span style="color:#d3869b;">5</span><span>;</span><span>
+</span><span style="color:#fa5c4b;">private static final int </span><span style="color:#fdf4c1;">MAX_POOL_SIZE </span><span style="color:#fe8019;">= </span><span style="color:#d3869b;">10</span><span>;</span><span>
+</span><span style="color:#fa5c4b;">private static final int </span><span style="color:#fdf4c1;">QUEUE_CAPACITY </span><span style="color:#fe8019;">= </span><span style="color:#d3869b;">100</span><span>;</span><span>
+</span><span style="color:#fa5c4b;">private static final </span><span style="color:#8ec07c;">Long </span><span style="color:#fdf4c1;">KEEP_ALIVE_TIME </span><span style="color:#fe8019;">= </span><span style="color:#d3869b;">1</span><span style="color:#fa5c4b;">L</span><span>;</span><span>
+</span><span>
+</span><span style="color:#fa5c4b;">public static</span><span> void </span><span style="color:#fdf4c1;">main(</span><span style="color:#8ec07c;">String</span><span style="color:#fa5c4b;">[]</span><span style="color:#fdf4c1;"> args) </span><span>{</span><span>
+</span><span>
+</span><span>    </span><span style="font-style:italic;color:#928374;">//使用阿里巴巴推荐的创建线程池的方式</span><span style="font-style:italic;color:#928374;">
+</span><span>    </span><span style="font-style:italic;color:#928374;">//通过ThreadPoolExecutor构造函数自定义参数创建</span><span style="font-style:italic;color:#928374;">
+</span><span>    </span><span style="color:#8ec07c;">ThreadPoolExecutor</span><span> executor </span><span style="color:#fe8019;">= </span><span style="color:#fa5c4b;">new </span><span style="color:#8ec07c;">ThreadPoolExecutor</span><span>(</span><span>
+</span><span>            </span><span style="color:#fdf4c1;">CORE_POOL_SIZE</span><span>,</span><span>
+</span><span>            </span><span style="color:#fdf4c1;">MAX_POOL_SIZE</span><span>,</span><span>
+</span><span>            </span><span style="color:#fdf4c1;">KEEP_ALIVE_TIME</span><span>,</span><span>
+</span><span>            </span><span style="color:#8ec07c;">TimeUnit</span><span>.</span><span style="color:#fdf4c1;">SECONDS</span><span>,</span><span>
+</span><span>            </span><span style="color:#fa5c4b;">new </span><span style="color:#8ec07c;">ArrayBlockingQueue</span><span>&lt;&gt;(</span><span style="color:#fdf4c1;">QUEUE_CAPACITY</span><span>),</span><span>
+</span><span>            </span><span style="color:#fa5c4b;">new </span><span style="color:#8ec07c;">ThreadPoolExecutor</span><span>.</span><span style="color:#8ec07c;">CallerRunsPolicy</span><span>());</span><span>
+</span><span>}</span><span>
+</span></code></pre>
+<p>如果只想中断 Executor 中的一个线程，可以通过使用 submit() 方法来提交一个线程，它会返回一个 Future&lt;?&gt; 对象，通过调用该对象的 cancel(true) 方法就可以中断线程</p>
+<pre data-lang="java" style="background-color:#282828;color:#fdf4c1aa;" class="language-java "><code class="language-java" data-lang="java"><span style="color:#8ec07c;">Future</span><span>&lt;</span><span style="color:#fe8019;">?</span><span>&gt; future </span><span style="color:#fe8019;">=</span><span> executorService.</span><span style="color:#fdf4c1;">submit(() </span><span style="color:#fa5c4b;">-&gt; </span><span style="color:#fdf4c1;">{</span><span style="color:#fdf4c1;">
+</span><span style="color:#fdf4c1;">    </span><span style="font-style:italic;color:#928374;">// ..</span><span style="font-style:italic;color:#928374;">
+</span><span style="color:#fdf4c1;">})</span><span>;</span><span>
+</span><span>future.</span><span style="color:#fdf4c1;">cancel(</span><span style="color:#d3869b;">true</span><span style="color:#fdf4c1;">)</span><span>;</span><span>
+</span></code></pre>
+<h2 id="tong-bu">同步</h2>
+<blockquote>
+<p>线程之间是有共享内存的，为了防止运行时出现数据竞争，Java提供了一系列的工具来解决这个问题</p>
+</blockquote>
+<h3 id="synchronized">Synchronized</h3>
+<p>内置锁，当它用来修饰一个方法或者代码块的时候，能够保证在同一时刻最多只有一个线程执行该段代码，另一个线程必须等待当前线程执行完以后才能执行该段代码（未执行之前，该线程处于阻塞状态）。同时它也是一个可重入锁。</p>
+<ol>
+<li>同步一个类</li>
+</ol>
+<pre data-lang="java" style="background-color:#282828;color:#fdf4c1aa;" class="language-java "><code class="language-java" data-lang="java"><span style="color:#fa5c4b;">public static </span><span style="color:#8ec07c;">Singleton </span><span style="color:#fdf4c1;">getInstance() </span><span>{</span><span>
+</span><span>    </span><span style="color:#fa5c4b;">if </span><span>(singleton </span><span style="color:#fe8019;">== </span><span style="color:#d3869b;">null</span><span>) {</span><span>
+</span><span>        </span><span style="color:#fa5c4b;">synchronized </span><span>(</span><span style="color:#8ec07c;">Singleton</span><span>.</span><span style="color:#fdf4c1;">class</span><span>) {</span><span>
+</span><span>            </span><span style="color:#fa5c4b;">if </span><span>(singleton </span><span style="color:#fe8019;">== </span><span style="color:#d3869b;">null</span><span>) {</span><span>
+</span><span>                singleton </span><span style="color:#fe8019;">= </span><span style="color:#fa5c4b;">new </span><span style="color:#8ec07c;">Singleton</span><span>();</span><span>
+</span><span>            }</span><span>
+</span><span>        }</span><span>
+</span><span>    }</span><span>
+</span><span>    </span><span style="color:#fa5c4b;">return</span><span> singleton;</span><span>
+</span><span>}</span><span>
+</span></code></pre>
+<p>上述代码作用于整个类，也就是说两个线程调用同一个类的不同对象上的这种同步语句，也会进行同步。(如果锁住this,那么就只有同一个对象的同步语句才会进行同步)</p>
+<ol start="2">
+<li>同步一个方法</li>
+</ol>
+<pre data-lang="java" style="background-color:#282828;color:#fdf4c1aa;" class="language-java "><code class="language-java" data-lang="java"><span style="color:#fa5c4b;">public synchronized</span><span> void </span><span style="color:#fdf4c1;">func () </span><span>{</span><span>
+</span><span>    </span><span style="font-style:italic;color:#928374;">// ...</span><span style="font-style:italic;color:#928374;">
+</span><span>}</span><span>
+</span></code></pre>
+<p>作用于同一个对象。</p>
+<h3 id="reentrantlock">ReentrantLock</h3>
+<p>ReentrantLock 是 java.util.concurrent（J.U.C）包中的锁</p>
+<pre data-lang="java" style="background-color:#282828;color:#fdf4c1aa;" class="language-java "><code class="language-java" data-lang="java"><span style="color:#fa5c4b;">public class </span><span style="color:#8ec07c;">LockExample </span><span>{</span><span>
+</span><span>
+</span><span>    </span><span style="color:#fa5c4b;">private </span><span style="color:#8ec07c;">Lock </span><span>lock </span><span style="color:#fe8019;">= </span><span style="color:#fa5c4b;">new </span><span style="color:#8ec07c;">ReentrantLock</span><span>();</span><span>
+</span><span>
+</span><span>    </span><span style="color:#fa5c4b;">public void </span><span style="color:#8ec07c;">func</span><span>() {</span><span>
+</span><span>        lock.</span><span style="color:#fdf4c1;">lock()</span><span>;</span><span>
+</span><span>        </span><span style="color:#fa5c4b;">try </span><span>{</span><span>
+</span><span>            </span><span style="color:#fa5c4b;">for </span><span>(</span><span style="color:#fa5c4b;">int</span><span> i </span><span style="color:#fe8019;">= </span><span style="color:#d3869b;">0</span><span>; i </span><span style="color:#fe8019;">&lt; </span><span style="color:#d3869b;">10</span><span>; i</span><span style="color:#fe8019;">++</span><span>) {</span><span>
+</span><span>                </span><span style="color:#8ec07c;">System</span><span>.out.</span><span style="color:#fdf4c1;">print(i </span><span style="color:#fe8019;">+ </span><span style="color:#b8bb26;">&quot; &quot;</span><span style="color:#fdf4c1;">)</span><span>;</span><span>
+</span><span>            }</span><span>
+</span><span>        } </span><span style="color:#fa5c4b;">finally </span><span>{</span><span>
+</span><span>            </span><span style="font-style:italic;color:#928374;">// 确保释放锁，从而避免发生死锁</span><span style="font-style:italic;color:#928374;">
+</span><span>            lock.</span><span style="color:#fdf4c1;">unlock()</span><span>;</span><span>
+</span><span>        }</span><span>
+</span><span>    }</span><span>
+</span><span>}</span><span>
+</span></code></pre>
+<h3 id="bi-jiao">比较</h3>
+<ol>
+<li>锁的实现
+synchronized 是 JVM 实现的，而 ReentrantLock 是 JDK 实现的。</li>
+<li>性能
+新版本 Java 对 synchronized 进行了很多优化，例如自旋锁等，synchronized 与 ReentrantLock 大致相同。</li>
+<li>等待可中断
+当持有锁的线程长期不释放锁的时候，正在等待的线程可以选择放弃等待，改为处理其他事情。ReentrantLock 可中断，而 synchronized 不行。</li>
+<li>公平锁
+公平锁是指多个线程在等待同一个锁时，必须按照申请锁的时间顺序来依次获得锁。
+公平锁将由于在挂起线程和恢复线程时存在的开销而极大的降低效率。
+而非公平锁由于是在请求时锁已经为可用状态就直接获取，不需要进行什么额外的操作，因此效率更高。
+synchronized 中的锁是非公平的，ReentrantLock 默认情况下也是非公平的，但是也可以是公平的。</li>
+<li>锁绑定多个条件
+一个 ReentrantLock 可以同时绑定多个 Condition 对象。</li>
+</ol>
+<h2 id="xian-cheng-zhi-jian-de-xie-zuo">线程之间的协作</h2>
+<p>当多个线程可以一起工作去解决某个问题时，如果某些部分必须在其它部分之前完成，那么就需要对线程进行协调。</p>
+<h3 id="join">join()</h3>
+<p>在线程中调用另一个线程的 join() 方法，会将当前线程挂起，而不是忙等待，直到目标线程结束。</p>
+<h3 id="wait-notify-notifyall">wait()  / notify() /  notifyAll()</h3>
+<ul>
+<li>调用 wait() 使得线程等待某个条件满足，线程在等待时会被挂起，当其他线程的运行使得这个条件满足时，其它线程会调用 notify() 或者 notifyAll() 来唤醒挂起的线程。</li>
+<li>它们都属于 Object 的一部分，而不属于 Thread。</li>
+<li>只能用在同步方法或者同步控制块中使用，否则会在运行时抛出 IllegalMonitorStateException。</li>
+<li>使用 wait() 挂起期间，线程会释放锁。这是因为，如果没有释放锁，那么其它线程就无法进入对象的同步方法或者同步控制块中，那么就无法执行 notify() 或者 notifyAll() 来唤醒挂起的线程，造成死锁。</li>
+</ul>
+<h3 id="wait-he-sleep-de-qu-bie">wait() 和 sleep() 的区别</h3>
+<ul>
+<li>wait() 是 Object 的方法，而 sleep() 是 Thread 的静态方法。</li>
+<li>wait() 会释放锁，sleep() 不会。</li>
+</ul>
+<h3 id="await-signal-signalall">await() / signal() / signalAll()</h3>
+<ul>
+<li>java.util.concurrent 类库中提供了 Condition 类来实现线程之间的协调，可以在 Condition 上调用 await() 方法使线程等待，其它线程调用 signal() 或 signalAll() 方法唤醒等待的线程。</li>
+<li>相比于 wait() 这种等待方式，await() 可以指定等待的条件，因此更加灵活。</li>
+<li>使用 Lock 来获取一个 Condition 对象。</li>
+</ul>
+<h2 id="xiao-jie">小结</h2>
+<p>这次总结了线程的基本概念，以及锁的运用，下次介绍下Java并发编程的工具箱😄</p>
+<h2 id="can-kao">参考</h2>
+<ul>
+<li>《Java并发编程实战》</li>
+<li>《Java核心技术（卷一）》第十四章</li>
+<li><a href="https://github.com/CyC2018/CS-Notes/blob/master/notes/Java%20%E5%B9%B6%E5%8F%91.md">CS-NOTES</a></li>
+</ul>
+
+    </div>
+
+    
+        <footer>
+            <hr>
+            <p>
+                
+                
+                    
+                    in <a href="https://nova-me.github.io/categories/programming-language/">Programming Language</a>
+                
+                
+                    and
+                    tagged
+                    
+                        <a href="https://nova-me.github.io/tags/java/">Java</a>
+                        
+                    
+                
+            </p>
+            
+            
+        </footer>
+    
+</article>
+
+
+    </body>
+
+</html>
