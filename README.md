@@ -9,7 +9,7 @@
 
 <div align="center">
   <!-- Github Actions -->
-  <img src="https://github.com/Whatsoo/whatsoo/workflows/ci/badge.svg" alt="actions status" />
+  <img src="https://github.com/NOVA-ME/nova-me.github.io/actions/workflows/ci.yml/badge.svg" alt="actions status" />
 </div>
 
 <br />

@@ -55,19 +55,19 @@ void basicQos(int prefetchCount);
 
 所有绑定的队列都收到消息
 
-![img](assets/rabbitmq/python-three-overall.png)
+![img](/python-three-overall.png)
 
 ## direct
 
 消息由指定的的 routing key 路由，是特殊的fanout。subscribe only to a subset of the messages
 
-![img](assets/rabbitmq/python-four.png)
+![img](/python-four.png)
 
 ## topic
 
 消息由指定的routing key路由，可以支持通配符。
 
-![img](assets/rabbitmq/python-five.png)
+![img](/python-five.png)
 
 # Producer
 
