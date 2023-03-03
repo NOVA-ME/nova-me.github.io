@@ -4,7 +4,7 @@ date = 2019-11-20
 
 [taxonomies]
 tags = ["Java"]
-categories = ["Programming Language"]
+categories = ["Interview"]
 +++
 
 Java并发实在是一个很深的问题，这里只简单记录一下Java并发的知识点。水太深，如果不花大量的时间感觉完全hold不住，但是目前的精力完全不够，兴趣也不在这
