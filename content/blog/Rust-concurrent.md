@@ -1,10 +1,8 @@
 +++
 title = "Rust无畏并发"
 date = 2021-07-25
-
 [taxonomies]
-tags = ["Rust"]
-categories = ["Programming Language"]
+  tags = ["Rust"]
 +++
 
 并发常见问题如下：

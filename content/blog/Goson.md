@@ -1,10 +1,8 @@
 +++
 title = "Goson使用总结"
 date = 2019-10-03
-
 [taxonomies]
-tags = ["Java"]
-categories = ["Json"]
+  tags = ["Java"]
 +++
 这篇文章是对Gson的内部实现原理进行一个总结
 <!-- more -->

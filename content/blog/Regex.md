@@ -1,10 +1,8 @@
 +++
 title = "正则表达式"
 date = 2023-03-16
-
 [taxonomies]
-tags = ["Regex"]
-categories = ["Java","Regex"]
+  tags = ["Java"]
 +++
 这篇文章是对正则表达式的一个总结
 <!-- more -->

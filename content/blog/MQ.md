@@ -1,10 +1,8 @@
 +++
 title = "MQ常见知识点"
 date = 2023-03-03
-
 [taxonomies]
-tags = ["Java","MQ"]
-categories = ["Interview"]
+  tags = ["Java"]
 +++
 
 # 一、为什么要使用消息队列？
