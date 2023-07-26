@@ -1,6 +1,3 @@
-[submodule "themes/after-dark"]
-	path = themes/anemone
-	url = https://github.com/Speyll/anemone.git
 [submodule "themes/themes/anemone"]
 	path = themes/themes/anemone
 	url = https://github.com/Speyll/anemone.git
