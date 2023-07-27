@@ -1,0 +1,881 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>NOVA-ME</title>
+    <subtitle>The road is life.</subtitle>
+    <link href="https://nova-me.github.io/atom.xml" rel="self" type="application/atom+xml"/>
+    <link href="https://nova-me.github.io"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2023-03-16T00:00:00+00:00</updated>
+    <id>https://nova-me.github.io/atom.xml</id>
+    <entry xml:lang="en">
+        <title>正则表达式</title>
+        <published>2023-03-16T00:00:00+00:00</published>
+        <updated>2023-03-16T00:00:00+00:00</updated>
+        <author>
+          <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://nova-me.github.io/blog/regex/" type="text/html"/>
+        <id>https://nova-me.github.io/blog/regex/</id>
+        <content type="html">&lt;p&gt;这篇文章是对正则表达式的一个总结&lt;&#x2F;p&gt;
+&lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;&lt;h2 id=&quot;javazheng-ze-shi-li&quot;&gt;Java正则示例&lt;&#x2F;h2&gt;
+&lt;pre data-lang=&quot;java&quot; style=&quot;background-color:#2e3440;color:#d8dee9;&quot; class=&quot;language-java &quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;import &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;java&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;util&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;regex&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;Matcher&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;import &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;java&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;util&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;regex&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;Pattern&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;@Test
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;public&lt;&#x2F;span&gt;&lt;span&gt; void &lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;RegexMatches&lt;&#x2F;span&gt;&lt;span&gt;() {
+&lt;&#x2F;span&gt;&lt;span&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;String&lt;&#x2F;span&gt;&lt;span&gt; line &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&amp;quot;a12bc&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;String&lt;&#x2F;span&gt;&lt;span&gt; patternStr &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&amp;quot;^.*?(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;\\&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;d+).*?$&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;Pattern&lt;&#x2F;span&gt;&lt;span&gt; compile &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;Pattern&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;compile&lt;&#x2F;span&gt;&lt;span&gt;(patternStr)&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;Matcher&lt;&#x2F;span&gt;&lt;span&gt; matcher &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span&gt; compile&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;matcher&lt;&#x2F;span&gt;&lt;span&gt;(line)&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;if &lt;&#x2F;span&gt;&lt;span&gt;(matcher&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;find&lt;&#x2F;span&gt;&lt;span&gt;()) {
+&lt;&#x2F;span&gt;&lt;span&gt;            &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;System&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span&gt;out&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;println&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&amp;quot;Number is: &amp;quot; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;+&lt;&#x2F;span&gt;&lt;span&gt; matcher&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;group&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;))&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;        } &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;else &lt;&#x2F;span&gt;&lt;span&gt;{
+&lt;&#x2F;span&gt;&lt;span&gt;            &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;System&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span&gt;out&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;println&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&amp;quot;No numbers.&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;)&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;        }
+&lt;&#x2F;span&gt;&lt;span&gt;    }
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h3 id=&quot;bu-huo-zu&quot;&gt;捕获组&lt;&#x2F;h3&gt;
+&lt;p&gt;捕获组是将多个字符视为一个单元的一种方法。 它们是通过将要分组的字符放在一组括号中来创建的。 例如，正则表达式(dog)创建包含字母d，o和g的单个组。
+捕获组通过从左到右计算它们的左括号来编号。 在表达式((A)(B(C)))中，例如，有四个这样的组 &lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;((A)(B(C)))&lt;&#x2F;li&gt;
+&lt;li&gt;(A)&lt;&#x2F;li&gt;
+&lt;li&gt;(B(C))&lt;&#x2F;li&gt;
+&lt;li&gt;(C)
+要查找表达式中存在多少个组，请在&lt;code&gt;Matcher&lt;&#x2F;code&gt;对象上调用&lt;code&gt;groupCount()&lt;&#x2F;code&gt;方法。 &lt;code&gt;groupCount()&lt;&#x2F;code&gt;方法返回一个&lt;code&gt;int&lt;&#x2F;code&gt;类型值，显示&lt;code&gt;Matcher&lt;&#x2F;code&gt;模式中存在的捕获组数。
+还有一个特殊组，即组0，它始终代表整个表达式。 该组未包含在&lt;code&gt;groupCount()&lt;&#x2F;code&gt;报告的总数中。&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h3 id=&quot;chang-yong-zheng-ze&quot;&gt;常用正则&lt;&#x2F;h3&gt;
+&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;子表达式&lt;&#x2F;th&gt;&lt;th&gt;匹配&lt;&#x2F;th&gt;&lt;&#x2F;tr&gt;&lt;&#x2F;thead&gt;&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;\&lt;&#x2F;td&gt;&lt;td&gt;将下一个字符标记为一个特殊字符、或一个原义字符、或一个 向后引用、或一个八进制转义符。例如，‘n’ 匹配字符 “n”。‘\n’ 匹配一个换行符。序列 ‘\’ 匹配 “&amp;quot; 而 “(” 则匹配 “(”&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;^&lt;&#x2F;td&gt;&lt;td&gt;匹配行的开头&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;$&lt;&#x2F;td&gt;&lt;td&gt;匹配除换行符之外的任何单个字符，使用m选项也可以匹配换行符&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;*&lt;&#x2F;td&gt;&lt;td&gt;匹配前面的子表达式零次或多次。例如，zo* 能匹配 “z” 以及 “zoo”。* 等价于{0,}&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;+&lt;&#x2F;td&gt;&lt;td&gt;匹配前面的子表达式一次或多次。例如，‘zo+’ 能匹配 “zo” 以及 “zoo”，但不能匹配 “z”。+ 等价于 {1,}&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;?&lt;&#x2F;td&gt;&lt;td&gt;匹配前面的子表达式零次或一次。例如，“do(es)?” 可以匹配 “do” 或 “does” 。? 等价于 {0,1}&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;{n}&lt;&#x2F;td&gt;&lt;td&gt;n 是一个非负整数。匹配确定的 n 次。例如，‘o{2}’ 不能匹配 “Bob” 中的 ‘o’，但是能匹配 “food” 中的两个 o&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;{n,}&lt;&#x2F;td&gt;&lt;td&gt;n 是一个非负整数。至少匹配n 次。例如，‘o{2,}’ 不能匹配 “Bob” 中的 ‘o’，但能匹配 “foooood” 中的所有 o。‘o{1,}’ 等价于 ‘o+’。‘o{0,}’ 则等价于 ‘o*’&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;{n,m}&lt;&#x2F;td&gt;&lt;td&gt;m 和 n 均为非负整数，其中n &amp;lt;= m。最少匹配 n 次且最多匹配 m 次。例如，“o{1,3}” 将匹配 “fooooood” 中的前三个 o。‘o{0,1}’ 等价于 ‘o?’。请注意在逗号和两个数之间不能有空格&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;?&lt;&#x2F;td&gt;&lt;td&gt;当该字符紧跟在任何一个其他限制符 (*, +, ?, {n}, {n,}, {n,m}) 后面时，匹配模式是非贪婪的。非贪婪模式尽可能少的匹配所搜索的字符串，而默认的贪婪模式则尽可能多的匹配所搜索的字符串。例如，对于字符串 “oooo”，‘o+?’ 将匹配单个 “o”，而 ‘o+’ 将匹配所有 ‘o’&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;.&lt;&#x2F;td&gt;&lt;td&gt;匹配除换行符（\n、\r）之外的任何单个字符。要匹配包括 ‘\n’ 在内的任何字符，请使用像“(.&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;(pattern)&lt;&#x2F;td&gt;&lt;td&gt;匹配 pattern 并获取这一匹配。所获取的匹配可以从产生的 Matches 集合得到，在VBScript 中使用 SubMatches 集合，在JScript 中则使用 $0…$9 属性。要匹配圆括号字符，请使用 ‘(’ 或 ‘)’&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;(?:pattern)&lt;&#x2F;td&gt;&lt;td&gt;匹配 pattern 但不获取匹配结果，也就是说这是一个非获取匹配，不进行存储供以后使用。这在使用 “或” 字符 (&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;(?=pattern)&lt;&#x2F;td&gt;&lt;td&gt;正向肯定预查（look ahead positive assert），在任何匹配pattern的字符串开始处匹配查找字符串。这是一个非获取匹配，也就是说，该匹配不需要获取供以后使用。例如，“Windows(?=95&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;(?!pattern)&lt;&#x2F;td&gt;&lt;td&gt;正向否定预查(negative assert)，在任何不匹配pattern的字符串开始处匹配查找字符串。这是一个非获取匹配，也就是说，该匹配不需要获取供以后使用。例如“Windows(?!95&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;(?&amp;lt;=pattern)&lt;&#x2F;td&gt;&lt;td&gt;反向(look behind)肯定预查，与正向肯定预查类似，只是方向相反。例如，“(?&amp;lt;=95&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;(?&amp;lt;!pattern)&lt;&#x2F;td&gt;&lt;td&gt;反向否定预查，与正向否定预查类似，只是方向相反。例如“(?&amp;lt;!95&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;x&lt;&#x2F;td&gt;&lt;td&gt;y&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;[xyz]&lt;&#x2F;td&gt;&lt;td&gt;字符集合。匹配所包含的任意一个字符。例如， ‘[abc]’ 可以匹配 “plain” 中的 ‘a’&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;sup class=&quot;footnote-reference&quot;&gt;&lt;a href=&quot;#xyz&quot;&gt;1&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt;&lt;&#x2F;td&gt;&lt;td&gt;负值字符集合。匹配未包含的任意字符。例如， ‘&lt;sup class=&quot;footnote-reference&quot;&gt;&lt;a href=&quot;#abc&quot;&gt;2&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt;’ 可以匹配 “plain” 中的’p’、‘l’、‘i’、‘n’&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;[a-z]&lt;&#x2F;td&gt;&lt;td&gt;字符范围。匹配指定范围内的任意字符。例如，‘[a-z]’ 可以匹配 ‘a’ 到 ‘z’ 范围内的任意小写字母字符&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;sup class=&quot;footnote-reference&quot;&gt;&lt;a href=&quot;#a-z&quot;&gt;3&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt;&lt;&#x2F;td&gt;&lt;td&gt;负值字符范围。匹配任何不在指定范围内的任意字符。例如，‘&lt;sup class=&quot;footnote-reference&quot;&gt;&lt;a href=&quot;#a-z&quot;&gt;3&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt;’ 可以匹配任何不在 ‘a’ 到 ‘z’ 范围内的任意字符&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;\b&lt;&#x2F;td&gt;&lt;td&gt;匹配一个单词边界，也就是指单词和空格间的位置。例如， ‘er\b’ 可以匹配“never“ 中的 ‘er’，但不能匹配 “verb” 中的 ‘er’&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;\B&lt;&#x2F;td&gt;&lt;td&gt;匹配非单词边界。‘er\B’ 能匹配 “verb” 中的 ‘er’，但不能匹配 “never” 中的 ‘er’&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;\cx&lt;&#x2F;td&gt;&lt;td&gt;匹配由 x 指明的控制字符。例如， \cM 匹配一个 Control-M 或回车符。x 的值必须为 A-Z 或 a-z 之一。否则，将 c 视为一个原义的 ‘c’ 字符&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;\d&lt;&#x2F;td&gt;&lt;td&gt;匹配一个数字字符。等价于 [0-9]&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;\D&lt;&#x2F;td&gt;&lt;td&gt;匹配一个非数字字符。等价于 &lt;sup class=&quot;footnote-reference&quot;&gt;&lt;a href=&quot;#0-9&quot;&gt;4&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;\f&lt;&#x2F;td&gt;&lt;td&gt;匹配一个换页符。等价于 \x0c 和 \cL&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;\n&lt;&#x2F;td&gt;&lt;td&gt;匹配一个换行符。等价于 \x0a 和 \cJ&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;\r&lt;&#x2F;td&gt;&lt;td&gt;匹配一个回车符。等价于 \x0d 和 \cM&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;\s&lt;&#x2F;td&gt;&lt;td&gt;匹配任何空白字符，包括空格、制表符、换页符等等。等价于 [ \f\n\r\t\v]&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;\S&lt;&#x2F;td&gt;&lt;td&gt;匹配任何非空白字符。等价于 &lt;sup class=&quot;footnote-reference&quot;&gt;&lt;a href=&quot;# \f\n\r\t\v&quot;&gt;5&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;\t&lt;&#x2F;td&gt;&lt;td&gt;匹配一个制表符。等价于 \x09 和 \cI&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;\v&lt;&#x2F;td&gt;&lt;td&gt;匹配一个垂直制表符。等价于 \x0b 和 \cK&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;\w&lt;&#x2F;td&gt;&lt;td&gt;匹配字母、数字、下划线。等价于’[A-Za-z0-9_]’&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;\W&lt;&#x2F;td&gt;&lt;td&gt;匹配非字母、数字、下划线。等价于 ‘&lt;sup class=&quot;footnote-reference&quot;&gt;&lt;a href=&quot;#A-Za-z0-9_&quot;&gt;6&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt;’&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;\xn&lt;&#x2F;td&gt;&lt;td&gt;匹配 n，其中 n 为十六进制转义值。十六进制转义值必须为确定的两个数字长。例如，‘\x41’ 匹配 “A”。‘\x041’ 则等价于 ‘\x04’ &amp;amp; “1”。正则表达式中可以使用 ASCII 编码&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;\num&lt;&#x2F;td&gt;&lt;td&gt;匹配 num，其中 num 是一个正整数。对所获取的匹配的引用。例如，‘(.)\1’ 匹配两个连续的相同字符&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;\n&lt;&#x2F;td&gt;&lt;td&gt;标识一个八进制转义值或一个向后引用。如果 \n 之前至少 n 个获取的子表达式，则 n 为向后引用。否则，如果 n 为八进制数字 (0-7)，则 n 为一个八进制转义值&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;\nm&lt;&#x2F;td&gt;&lt;td&gt;标识一个八进制转义值或一个向后引用。如果 \nm 之前至少有 nm 个获得子表达式，则 nm 为向后引用。如果 \nm 之前至少有 n 个获取，则 n 为一个后跟文字 m 的向后引用。如果前面的条件都不满足，若 n 和 m 均为八进制数字 (0-7)，则 \nm 将匹配八进制转义值 nm&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;\nml&lt;&#x2F;td&gt;&lt;td&gt;如果 n 为八进制数字 (0-3)，且 m 和 l 均为八进制数字 (0-7)，则匹配八进制转义值 nml&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;\un&lt;&#x2F;td&gt;&lt;td&gt;匹配 n，其中 n 是一个用四个十六进制数字表示的 Unicode 字符。例如， \u00A9 匹配版权符号 (?)&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;&#x2F;tbody&gt;&lt;&#x2F;table&gt;
+</content>
+    </entry>
+    <entry xml:lang="en">
+        <title>MQ常见知识点</title>
+        <published>2023-03-03T00:00:00+00:00</published>
+        <updated>2023-03-03T00:00:00+00:00</updated>
+        <author>
+          <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://nova-me.github.io/blog/mq/" type="text/html"/>
+        <id>https://nova-me.github.io/blog/mq/</id>
+        <content type="html">&lt;h1 id=&quot;yi-wei-shi-yao-yao-shi-yong-xiao-xi-dui-lie&quot;&gt;一、为什么要使用消息队列？&lt;&#x2F;h1&gt;
+&lt;h2 id=&quot;1-1-yi-bu&quot;&gt;1.1 异步&lt;&#x2F;h2&gt;
+&lt;h2 id=&quot;1-2-jie-ou&quot;&gt;1.2 解耦&lt;&#x2F;h2&gt;
+&lt;h2 id=&quot;1-3-xiao-feng&quot;&gt;1.3 消峰&lt;&#x2F;h2&gt;
+&lt;h2 id=&quot;er-shi-yong-xiao-xi-dui-lie-dai-lai-de-wen-ti&quot;&gt;二、 使用消息队列带来的问题&lt;&#x2F;h2&gt;
+&lt;h2 id=&quot;2-1-xiao-xi-ji-ya&quot;&gt;2.1 消息积压&lt;&#x2F;h2&gt;
+&lt;p&gt;消费者消费满或者消费者干脆挂掉了。&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;2-2-xi-tong-xue-beng&quot;&gt;2.2 系统雪崩&lt;&#x2F;h2&gt;
+&lt;p&gt;MQ挂了，整个系统跟着挂，MQ一旦出现故障，系统不能往MQ发送消息，也不能从MQ消费消息，整个系统就崩溃了。&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;2-3-xiao-xi-xiao-fei-shun-xu-xing&quot;&gt;2.3 消息消费顺序性&lt;&#x2F;h2&gt;
+&lt;h2 id=&quot;2-4-xiao-xi-diu-shi&quot;&gt;2.4 消息丢失&lt;&#x2F;h2&gt;
+&lt;h2 id=&quot;2-5-xiao-xi-mi-deng-xiao-xi-zhong-fu-xiao-fei&quot;&gt;2.5 消息幂等（消息重复消费）&lt;&#x2F;h2&gt;
+&lt;ol&gt;
+&lt;li&gt;版本号去重&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;举个简单的例子，一个产品的状态有上线&#x2F;下线状态。如果消息1是下线，消息2是上线。不巧消息1判重失败，被投递了两次，且第二次发生在2之后，如果不做重复性判断，显然最终状态是错误的。 但是，如果每个消息自带一个版本号。上游发送的时候，标记消息1版本号是1，消息2版本号是2。如果再发送下线消息，则版本号标记为3。下游对于每次消息的处理，同时维护一个版本号。 每次只接受比当前版本号大的消息。初始版本为0，当消息1到达时，将版本号更新为1。消息2到来时，因为版本号&amp;gt;1.可以接收，同时更新版本号为2.当另一条下线消息到来时，如果版本号是3.则是真实的下线消息。如果是1，则是重复投递的消息。 如果业务方只关心消息重复不重复，那么问题就已经解决了。但很多时候另一个头疼的问题来了，就是消息顺序如果和想象的顺序不一致。比如应该的顺序是12，到来的顺序是21。则最后会发生状态错误。 参考TCP&#x2F;IP协议，如果想让乱序的消息最后能够正确的被组织，那么就应该只接收比当前版本号大一的消息。并且在一个session周期内要一直保存各个消息的版本号。 如果到来的顺序是21，则先把2存起来，待1到来后，先处理1，再处理2，这样重复性和顺序性要求就都达到了。&lt;&#x2F;p&gt;
+&lt;ol start=&quot;2&quot;&gt;
+&lt;li&gt;数据库唯一索引&lt;&#x2F;li&gt;
+&lt;li&gt;状态机&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;h2 id=&quot;2-6-shi-wu-wen-ti&quot;&gt;2.6 事务问题&lt;&#x2F;h2&gt;
+&lt;p&gt;消息一致性需要得到保障。最终一致性，主要是用“记录”和“补偿”的方式。在做所有的不确定的事情之前，先把事情记录下来，然后去做不确定的事情，结果可能是：成功、失败或是不确定，“不确定”（例如超时等）可以等价为失败。成功就可以把记录的东西清理掉了，对于失败和不确定，可以依靠定时任务等方式把所有失败的事情重新搞一遍，直到成功为止。&lt;&#x2F;p&gt;
+&lt;p&gt;以本地和业务在一个数据库实例中建表为例子，与扣钱的业务操作同一个事务里，将消息插入本地数据库。如果消息入库失败，则业务回滚；如果消息入库成功，事务提交。 然后发送消息（注意这里可以实时发送，不需要等定时任务检出，以提高消息实时性）。以后的问题就是最终一致性问题了，只要消息没有发送成功，就一直靠&lt;strong&gt;定时任务重试&lt;&#x2F;strong&gt;。 这里有一个关键的点，本地事务做的，是业务落地和消息落地的事务，而不是业务落地和RPC成功的事务。这里很多人容易混淆，如果是后者，无疑是事务嵌套RPC，是大忌，会有&lt;strong&gt;长事务死锁&lt;&#x2F;strong&gt;等各种风险。 而消息只要成功落地，很大程度上就没有丢失的风险（磁盘物理损坏除外）。而消息只要投递到服务端确认后本地才做删除，就完成了producer-&amp;gt;broker的可靠投递，并且当消息存储异常时，业务也是可以回滚的。&lt;&#x2F;p&gt;
+&lt;h1 id=&quot;si-chang-jian-mqde-te-dian&quot;&gt;四、常见MQ的特点&lt;&#x2F;h1&gt;
+&lt;h2 id=&quot;4-1-pull-or-pushmo-xing&quot;&gt;4.1 Pull or Push模型&lt;&#x2F;h2&gt;
+&lt;p&gt;观察者模式、推；Future模式、拉&lt;&#x2F;p&gt;
+&lt;p&gt;ActiveMQ是JMS的实现，JMS 消费消息后，会删除。JMS 消息种类分的细；Kafka 的消息没有做详细区分，Kafka消息会写入磁盘，所以一般写入消息较大，客户端可以定制消费。所以是客户端主动去pull消息。&lt;&#x2F;p&gt;
+</content>
+    </entry>
+    <entry xml:lang="en">
+        <title>RabbitMQ常见知识点</title>
+        <published>2023-03-03T00:00:00+00:00</published>
+        <updated>2023-03-03T00:00:00+00:00</updated>
+        <author>
+          <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://nova-me.github.io/blog/rabbitmq/" type="text/html"/>
+        <id>https://nova-me.github.io/blog/rabbitmq/</id>
+        <content type="html">&lt;h1 id=&quot;amqp&quot;&gt;AMQP&lt;&#x2F;h1&gt;
+&lt;p&gt;AMQP定义了规范，RabbitMQ是规范实现之一。&lt;&#x2F;p&gt;
+&lt;h1 id=&quot;docker-an-zhuang-rabbitmq&quot;&gt;Docker 安装 RabbitMQ&lt;&#x2F;h1&gt;
+&lt;ol&gt;
+&lt;li&gt;下载&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;pre data-lang=&quot;shell&quot; style=&quot;background-color:#2e3440;color:#d8dee9;&quot; class=&quot;language-shell &quot;&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;&lt;span&gt;docker pull rabbitmq:3.8.2-management
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;ol start=&quot;2&quot;&gt;
+&lt;li&gt;运行&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;pre data-lang=&quot;shell&quot; style=&quot;background-color:#2e3440;color:#d8dee9;&quot; class=&quot;language-shell &quot;&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;&lt;span&gt;docker run -d --name rabbitmq3.8.2 -p 5672:5672 -p 15672:15672 -v &#x2F;Users&#x2F;felix&#x2F;share&#x2F;data:&#x2F;var&#x2F;lib&#x2F;rabbitmq -e RABBITMQ_DEFAULT_USER=admin -e RABBITMQ_DEFAULT_PASS=afei123 rabbitmq:3.8.2-management
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;说明：
+-d 后台运行容器；
+–name 指定容器名；
+-p 指定服务运行的端口（5672：应用访问端口；15672：控制台Web端口号）；
+-v 映射目录；
+-e 指定环境变量；（RABBITMQ_DEFAULT_VHOST：默认虚拟机名；RABBITMQ_DEFAULT_USER：默认的用户名；RABBITMQ_DEFAULT_PASS：默认用户名的密码）&lt;&#x2F;p&gt;
+&lt;ol start=&quot;3&quot;&gt;
+&lt;li&gt;查看在容器中查看运行中的RabbitMQ&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;docker exec -it 645e674c1151 rabbitmqctl list_exchanges&lt;&#x2F;p&gt;
+&lt;h1 id=&quot;consumer&quot;&gt;Consumer&lt;&#x2F;h1&gt;
+&lt;p&gt;多个消费者消费消息时，默认Round-robin轮询分发，若有的消费者处理得快，想让能者多得，多劳多得，则可以配置消费者 quality of service。&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2e3440;color:#d8dee9;&quot;&gt;&lt;code&gt;&lt;span&gt;void basicQos(int prefetchCount);
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h2 id=&quot;xiao-fei-zhe-ackji-zhi&quot;&gt;消费者ack机制&lt;&#x2F;h2&gt;
+&lt;p&gt;保证消息一定被消费&lt;&#x2F;p&gt;
+&lt;h1 id=&quot;exchanger-type&quot;&gt;Exchanger Type&lt;&#x2F;h1&gt;
+&lt;h2 id=&quot;fanout&quot;&gt;fanout&lt;&#x2F;h2&gt;
+&lt;p&gt;所有绑定的队列都收到消息&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;rabbitmq&#x2F;python-three-overall.png&quot; alt=&quot;img&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;direct&quot;&gt;direct&lt;&#x2F;h2&gt;
+&lt;p&gt;消息由指定的的 routing key 路由，是特殊的fanout。subscribe only to a subset of the messages&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;rabbitmq&#x2F;python-four.png&quot; alt=&quot;img&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;topic&quot;&gt;topic&lt;&#x2F;h2&gt;
+&lt;p&gt;消息由指定的routing key路由，可以支持通配符。&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;rabbitmq&#x2F;python-five.png&quot; alt=&quot;img&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;h1 id=&quot;producer&quot;&gt;Producer&lt;&#x2F;h1&gt;
+&lt;h2 id=&quot;reliable-publishing&quot;&gt;Reliable publishing&lt;&#x2F;h2&gt;
+&lt;p&gt;Use publisher confirms to make sure published messages have safely reached the broker.&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;同步 confirms&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;pre data-lang=&quot;shell&quot; style=&quot;background-color:#2e3440;color:#d8dee9;&quot; class=&quot;language-shell &quot;&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;&lt;span&gt;waitForConfirmsOrDie();
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;ol start=&quot;2&quot;&gt;
+&lt;li&gt;异步confirms&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;异步确认有一个序列号，用于异步绑定消息，参考：&lt;code&gt;com.rabbitmq.client.Channel#getNextPublishSeqNo&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;。异步处理的时候添加一个异步回掉接口：&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;java&quot; style=&quot;background-color:#2e3440;color:#d8dee9;&quot; class=&quot;language-java &quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;com&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;rabbitmq&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;client&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;Channel&lt;&#x2F;span&gt;&lt;span&gt;#&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;addConfirmListener&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;com&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;rabbitmq&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;client&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;ConfirmCallback&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;com&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;rabbitmq&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;client&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;ConfirmCallback&lt;&#x2F;span&gt;&lt;span&gt;)
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h2 id=&quot;shi-wu&quot;&gt;事务&lt;&#x2F;h2&gt;
+&lt;p&gt;事务可参考：&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;java&quot; style=&quot;background-color:#2e3440;color:#d8dee9;&quot; class=&quot;language-java &quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;com&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;rabbitmq&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;client&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;Channel&lt;&#x2F;span&gt;&lt;span&gt;#&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;txCommit&lt;&#x2F;span&gt;&lt;span&gt;()&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;com&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;rabbitmq&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;client&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;Channel&lt;&#x2F;span&gt;&lt;span&gt;#&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;txRollback&lt;&#x2F;span&gt;&lt;span&gt;()&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h1 id=&quot;ying-yong&quot;&gt;应用&lt;&#x2F;h1&gt;
+&lt;h2 id=&quot;cai-yong-rabbitmqgao-ding-chao-shi-ding-dan&quot;&gt;采用RabbitMQ搞定超时订单&lt;&#x2F;h2&gt;
+&lt;p&gt;使用RabbitMQ来实现延迟任务必须先了解RabbitMQ的两个概念：消息的TTL和死信Exchange，通过这两者的组合来实现上述需求。&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;消息的TTL（Time To Live）&lt;&#x2F;strong&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;消息的&lt;code&gt;TTL&lt;&#x2F;code&gt;就是消息的存活时间。RabbitMQ 可以对队列和消息分别设置&lt;code&gt;TTL&lt;&#x2F;code&gt;。对队列设置就是队列没有消费者连着的保留时间，也可以对每一个单独的消息做单独的设置。超过了这个时间，我们认为这个消息就死了，称之为死信。&lt;&#x2F;p&gt;
+&lt;p&gt;那么，如何设置这个TTL值呢？有两种方式，第一种是在创建队列的时候设置队列的&lt;code&gt;&amp;quot;x-message-ttl&amp;quot;&lt;&#x2F;code&gt;属性，如下：&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;java&quot; style=&quot;background-color:#2e3440;color:#d8dee9;&quot; class=&quot;language-java &quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;Map&lt;&#x2F;span&gt;&lt;span&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;String&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;Object&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt; args &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;= new &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;HashMap&lt;&#x2F;span&gt;&lt;span&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;String&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;Object&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;()&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;args&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;put&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&amp;quot;x-message-ttl&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;6000&lt;&#x2F;span&gt;&lt;span&gt;)&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;channel&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;queueDeclare&lt;&#x2F;span&gt;&lt;span&gt;(queueName&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;,&lt;&#x2F;span&gt;&lt;span&gt; durable&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;,&lt;&#x2F;span&gt;&lt;span&gt; exclusive&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;,&lt;&#x2F;span&gt;&lt;span&gt; autoDelete&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;,&lt;&#x2F;span&gt;&lt;span&gt; args)&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;这样所有被投递到该队列的消息都最多不会存活超过6s。&lt;&#x2F;p&gt;
+&lt;p&gt;另一种方式便是针对每条消息设置TTL，代码如下：&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;java&quot; style=&quot;background-color:#2e3440;color:#d8dee9;&quot; class=&quot;language-java &quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span&gt;AMQP&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;BasicProperties&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;Builder&lt;&#x2F;span&gt;&lt;span&gt; builder &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;= new &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;AMQP&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;BasicProperties&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;Builder&lt;&#x2F;span&gt;&lt;span&gt;()&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;builder&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;expiration&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&amp;quot;6000&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;)&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;AMQP&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;BasicProperties&lt;&#x2F;span&gt;&lt;span&gt; properties &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span&gt; builder&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;build&lt;&#x2F;span&gt;&lt;span&gt;()&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;channel&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;basicPublish&lt;&#x2F;span&gt;&lt;span&gt;(exchangeName&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;,&lt;&#x2F;span&gt;&lt;span&gt; routingKey&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;,&lt;&#x2F;span&gt;&lt;span&gt; mandatory&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;,&lt;&#x2F;span&gt;&lt;span&gt; properties&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&amp;quot;msg body&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;getBytes&lt;&#x2F;span&gt;&lt;span&gt;())&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;这样这条消息的过期时间也被设置成了6s。&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;但这两种方式是有区别的，如果设置了队列的TTL属性，那么一旦消息过期，就会被队列丢弃，而第二种方式，消息即使过期，也不一定会被马上丢弃，因为消息是否过期是在即将投递到消费者之前判定的，如果当前队列有严重的消息积压情况，则已过期的消息也许还能存活较长时间。 另外，还需要注意的一点是，如果不设置TTL，表示消息永远不会过期，如果将TTL设置为0，则表示除非此时可以直接投递该消息到消费者，否则该消息将会被丢弃。&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;单靠死信还不能实现延迟任务，还要靠&lt;code&gt;Dead Letter Exchange&lt;&#x2F;code&gt;。&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Dead Letter Exchanges&lt;&#x2F;strong&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;一个消息在满足如下条件下，会进死信路由，记住这里是路由而不是队列，一个路由可以对应很多队列。&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;一个消息被&lt;code&gt;Consumer&lt;&#x2F;code&gt;拒收了，并且&lt;code&gt;reject&lt;&#x2F;code&gt;方法的参数里&lt;code&gt;requeue&lt;&#x2F;code&gt;是&lt;code&gt;false&lt;&#x2F;code&gt;。也就是说不会被再次放在队列里，被其他消费者使用。&lt;&#x2F;li&gt;
+&lt;li&gt;上面的消息的&lt;code&gt;TTL&lt;&#x2F;code&gt;到了，消息就过期了。&lt;&#x2F;li&gt;
+&lt;li&gt;队列的长度限制满了。排在前面的消息会被丢弃或者扔到死信路由上。&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;&lt;code&gt;Dead Letter Exchange&lt;&#x2F;code&gt;其实就是一种普通的&lt;code&gt;exchange&lt;&#x2F;code&gt;，和创建其他&lt;code&gt;exchange&lt;&#x2F;code&gt;没有两样。只是在某一个设置&lt;code&gt;Dead Letter Exchange&lt;&#x2F;code&gt;的队列中有消息过期了，会自动触发消息的转发，发送到&lt;code&gt;Dead Letter Exchange&lt;&#x2F;code&gt;中去。&lt;&#x2F;p&gt;
+</content>
+    </entry>
+    <entry xml:lang="en">
+        <title>Rust无畏并发</title>
+        <published>2021-07-25T00:00:00+00:00</published>
+        <updated>2021-07-25T00:00:00+00:00</updated>
+        <author>
+          <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://nova-me.github.io/blog/rust/" type="text/html"/>
+        <id>https://nova-me.github.io/blog/rust/</id>
+        <content type="html">&lt;p&gt;并发常见问题如下：&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;竞争状态（Race conditions），多个线程以不一致的顺序访问数据或资源&lt;&#x2F;li&gt;
+&lt;li&gt;死锁（Deadlocks），两个线程互相等待对方停止使用其所拥有的资源，这会阻止它们继续运行&lt;&#x2F;li&gt;
+&lt;li&gt;只会发生在特定情况且难以稳定重现和修复的 bug&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;接下来看看 Rust 中是如何处理并发问题的&lt;&#x2F;p&gt;
+&lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;&lt;h2 id=&quot;biao-zhun-ku-zhong-de-bing-fa&quot;&gt;标准库中的并发&lt;&#x2F;h2&gt;
+&lt;p&gt;标准库的&lt;code&gt;thread::spawn&lt;&#x2F;code&gt;会创建一个线程去执行传入的闭包函数，如下所示，join放在注释处的话，主线程会等待直到新线程执行完毕才开始执行&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;rust&quot; style=&quot;background-color:#2e3440;color:#d8dee9;&quot; class=&quot;language-rust &quot;&gt;&lt;code class=&quot;language-rust&quot; data-lang=&quot;rust&quot;&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;use &lt;&#x2F;span&gt;&lt;span&gt;std&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;::&lt;&#x2F;span&gt;&lt;span&gt;{thread&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span&gt;time&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;::&lt;&#x2F;span&gt;&lt;span&gt;Duration}&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;fn &lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;main&lt;&#x2F;span&gt;&lt;span&gt;() {
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; handler &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span&gt;thread&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;::&lt;&#x2F;span&gt;&lt;span&gt;spawn(|| {
+&lt;&#x2F;span&gt;&lt;span&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;for&lt;&#x2F;span&gt;&lt;span&gt; i &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;in &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;..&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;10 &lt;&#x2F;span&gt;&lt;span&gt;{
+&lt;&#x2F;span&gt;&lt;span&gt;            println!(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&amp;quot;hi number &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;{}&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;, from the spawn thread!&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;,&lt;&#x2F;span&gt;&lt;span&gt; i)&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;            thread&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;::&lt;&#x2F;span&gt;&lt;span&gt;sleep(Duration&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;::&lt;&#x2F;span&gt;&lt;span&gt;from_secs(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;))&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;        }
+&lt;&#x2F;span&gt;&lt;span&gt;    })&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#616e88;&quot;&gt;&#x2F;&#x2F; handler.join().unwrap();
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;for&lt;&#x2F;span&gt;&lt;span&gt; i &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;in &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;..&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;10 &lt;&#x2F;span&gt;&lt;span&gt;{
+&lt;&#x2F;span&gt;&lt;span&gt;        println!(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&amp;quot;hi number &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;{}&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;, from main thread!&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;,&lt;&#x2F;span&gt;&lt;span&gt; i)&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;        thread&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;::&lt;&#x2F;span&gt;&lt;span&gt;sleep(Duration&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;::&lt;&#x2F;span&gt;&lt;span&gt;from_secs(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;))&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;    }
+&lt;&#x2F;span&gt;&lt;span&gt;    handler&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;join&lt;&#x2F;span&gt;&lt;span&gt;()&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;unwrap&lt;&#x2F;span&gt;&lt;span&gt;()&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h2 id=&quot;moveyi-dong-suo-you-quan-dao-bi-bao&quot;&gt;move移动所有权到闭包&lt;&#x2F;h2&gt;
+&lt;p&gt;如下所是&lt;code&gt;move&lt;&#x2F;code&gt;会移动&lt;code&gt;vec&lt;&#x2F;code&gt;的所有权到闭包中去&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;rust&quot; style=&quot;background-color:#2e3440;color:#d8dee9;&quot; class=&quot;language-rust &quot;&gt;&lt;code class=&quot;language-rust&quot; data-lang=&quot;rust&quot;&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;use &lt;&#x2F;span&gt;&lt;span&gt;std&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;::&lt;&#x2F;span&gt;&lt;span&gt;{thread&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span&gt;time&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;::&lt;&#x2F;span&gt;&lt;span&gt;Duration&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;,&lt;&#x2F;span&gt;&lt;span&gt; vec}&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;fn &lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;main&lt;&#x2F;span&gt;&lt;span&gt;() {
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; v &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span&gt;vec![&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;2&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;3&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;4&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;5&lt;&#x2F;span&gt;&lt;span&gt;]&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; handler &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span&gt;thread&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;::&lt;&#x2F;span&gt;&lt;span&gt;spawn(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;move || &lt;&#x2F;span&gt;&lt;span&gt;{
+&lt;&#x2F;span&gt;&lt;span&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;for&lt;&#x2F;span&gt;&lt;span&gt; i &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;in&lt;&#x2F;span&gt;&lt;span&gt; v&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;iter&lt;&#x2F;span&gt;&lt;span&gt;() {
+&lt;&#x2F;span&gt;&lt;span&gt;            println!(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&amp;quot;hi number &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;{}&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;, from the spawn thread!&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;,&lt;&#x2F;span&gt;&lt;span&gt; i)&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;            thread&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;::&lt;&#x2F;span&gt;&lt;span&gt;sleep(Duration&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;::&lt;&#x2F;span&gt;&lt;span&gt;from_secs(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;))&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;        }
+&lt;&#x2F;span&gt;&lt;span&gt;    })&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;for&lt;&#x2F;span&gt;&lt;span&gt; i &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;in &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;..=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;5 &lt;&#x2F;span&gt;&lt;span&gt;{
+&lt;&#x2F;span&gt;&lt;span&gt;        println!(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&amp;quot;hi number &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;{}&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;, from main thread!&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;,&lt;&#x2F;span&gt;&lt;span&gt; i)&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;        thread&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;::&lt;&#x2F;span&gt;&lt;span&gt;sleep(Duration&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;::&lt;&#x2F;span&gt;&lt;span&gt;from_secs(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;))&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;    }
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;    handler&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;join&lt;&#x2F;span&gt;&lt;span&gt;()&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;unwrap&lt;&#x2F;span&gt;&lt;span&gt;()&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h2 id=&quot;tokiode-yi-bu-duo-xian-cheng&quot;&gt;tokio的异步多线程&lt;&#x2F;h2&gt;
+&lt;pre data-lang=&quot;rust&quot; style=&quot;background-color:#2e3440;color:#d8dee9;&quot; class=&quot;language-rust &quot;&gt;&lt;code class=&quot;language-rust&quot; data-lang=&quot;rust&quot;&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;use &lt;&#x2F;span&gt;&lt;span&gt;tokio&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;::&lt;&#x2F;span&gt;&lt;span&gt;{sync&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;::&lt;&#x2F;span&gt;&lt;span&gt;mpsc&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span&gt;time&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;::&lt;&#x2F;span&gt;&lt;span&gt;Instant}&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;#[tokio::main]
+&lt;&#x2F;span&gt;&lt;span&gt;async &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;fn &lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;main&lt;&#x2F;span&gt;&lt;span&gt;() {
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; now &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span&gt;Instant&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;::&lt;&#x2F;span&gt;&lt;span&gt;now()&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;let &lt;&#x2F;span&gt;&lt;span&gt;(tx&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;mut&lt;&#x2F;span&gt;&lt;span&gt; rx) &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span&gt;mpsc&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;::&lt;&#x2F;span&gt;&lt;span&gt;channel(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;1000000&lt;&#x2F;span&gt;&lt;span&gt;)&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;for&lt;&#x2F;span&gt;&lt;span&gt; i &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;in &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;..=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;1000000 &lt;&#x2F;span&gt;&lt;span&gt;{
+&lt;&#x2F;span&gt;&lt;span&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; tx1 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span&gt; tx&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;clone&lt;&#x2F;span&gt;&lt;span&gt;()&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;        tokio&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;::&lt;&#x2F;span&gt;&lt;span&gt;spawn(async &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;move &lt;&#x2F;span&gt;&lt;span&gt;{
+&lt;&#x2F;span&gt;&lt;span&gt;            tx1&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;send&lt;&#x2F;span&gt;&lt;span&gt;(format!(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;{}&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;{}&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&amp;quot;hi&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;,&lt;&#x2F;span&gt;&lt;span&gt; i))&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span&gt;await&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;        })&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;    }
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;    tokio&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;::&lt;&#x2F;span&gt;&lt;span&gt;spawn(async &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;move &lt;&#x2F;span&gt;&lt;span&gt;{
+&lt;&#x2F;span&gt;&lt;span&gt;        tx&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;send&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;String&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;::&lt;&#x2F;span&gt;&lt;span&gt;from(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&amp;quot;final string!&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;))&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span&gt;await&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;    })&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;while let &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;Some&lt;&#x2F;span&gt;&lt;span&gt;(v) &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span&gt; rx&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;recv&lt;&#x2F;span&gt;&lt;span&gt;()&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span&gt;await {
+&lt;&#x2F;span&gt;&lt;span&gt;        println!(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;{}&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;,&lt;&#x2F;span&gt;&lt;span&gt; v)&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;    }
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;    println!(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&amp;quot;use &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;{}&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt; seconds&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;,&lt;&#x2F;span&gt;&lt;span&gt; now&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;elapsed&lt;&#x2F;span&gt;&lt;span&gt;()&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;as_secs&lt;&#x2F;span&gt;&lt;span&gt;())&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+</content>
+    </entry>
+    <entry xml:lang="en">
+        <title>Java并发总结（二）</title>
+        <published>2019-11-20T00:00:00+00:00</published>
+        <updated>2019-11-20T00:00:00+00:00</updated>
+        <author>
+          <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://nova-me.github.io/blog/java-concurrent-2/" type="text/html"/>
+        <id>https://nova-me.github.io/blog/java-concurrent-2/</id>
+        <content type="html">&lt;p&gt;Java并发实在是一个很深的问题，这里只简单记录一下Java并发的知识点。水太深，如果不花大量的时间感觉完全hold不住，但是目前的精力完全不够，兴趣也不在这&lt;&#x2F;p&gt;
+&lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;&lt;h2 id=&quot;shi-yao-shi-xian-cheng-an-quan-xing&quot;&gt;什么是线程安全性&lt;&#x2F;h2&gt;
+&lt;p&gt;某个类的行为和其规范完全一致
+当多个线程访问某个类时，不管运行时环境采用何种调度方式或者这些线程将如何交替执行，并且在主调代码中不需要任何额外的同步或协同，这个类都能表现出正确的行为，那么就称这个类是线程安全的&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;yuan-zi-cao-zuo-atomic-operation&quot;&gt;原子操作(Atomic Operation)&lt;&#x2F;h2&gt;
+&lt;p&gt;原子操作是指不会被线程调度机制打断的操作，这种操作一旦开始，就会一直运行到结束，中间不会有任何的上下文切换，它是不可分割的。&lt;&#x2F;p&gt;
+&lt;p&gt;举一个常见的例子：a++，这个操作就不是一个原子性的操作，那么在多个线程访问调用的时候，a的最终结果就很有可能不是我们的预期值。因为实际上a++这个操作可以分为已下三步：获取a的值，更新a的值，写回a的值。&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;huan-cun-yi-zhi-xing&quot;&gt;缓存一致性&lt;&#x2F;h2&gt;
+&lt;p&gt;在共享内存的多处理器体系架构中，每个处理器都拥有自己的缓存，并且定期地与主内存进行协调，在不同的处理器架构中提供了不同级别的缓存一致性。&lt;&#x2F;p&gt;
+&lt;p&gt;这个缓存一致性可以通过volatile关键字来加深理解。&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;volatileguan-jian-zi&quot;&gt;Volatile关键字&lt;&#x2F;h2&gt;
+&lt;p&gt;Volatile是一种较弱的同步机制，用来确保将变量的更新操作通知到其他线程，当把变量声明为volatile类型后，编译器与运行时都会注意到这个变量是共享的，因此不会将该变量上的操作一起重排序。volatile变量不会被缓存在寄存器或者对其他处理器不可见的地方，因此在读取volatile类型的变量时总会返回最新写入的值。
+但是有一点是需要注意的，被volatile修饰的变量的的操作也应该是原子性的，不然同样会出先问题。
+例如：&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;java&quot; style=&quot;background-color:#2e3440;color:#d8dee9;&quot; class=&quot;language-java &quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;Volatile &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;int&lt;&#x2F;span&gt;&lt;span&gt; a &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#616e88;&quot;&gt;&#x2F;&#x2F; 非原子性操作，使用volatile不能保证同步，改用Synchronized
+&lt;&#x2F;span&gt;&lt;span&gt;a&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;++&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;而为什么Volatile能够实现这种功能呢？
+这个要从它的实现原理说起，在x86处理器下通过工具获取JIT编译器生成的汇编指令来看Volatile的写操作实际上做了什么吧。&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; style=&quot;background-color:#2e3440;color:#d8dee9;&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;0x01a3de1d:&lt;&#x2F;span&gt;&lt;span&gt; movb &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;$&lt;&#x2F;span&gt;&lt;span&gt;0x0,0x1104800(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;%&lt;&#x2F;span&gt;&lt;span&gt;esi)&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;0x01a3de24:&lt;&#x2F;span&gt;&lt;span&gt; lock addl &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;$&lt;&#x2F;span&gt;&lt;span&gt;0x0,(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;%&lt;&#x2F;span&gt;&lt;span&gt;esp)&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;有Volatile变量修饰的共享变量进行写操作的时候会多第二行代码，lock指令修饰。
+而lock指令会做什么事呢？&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;将当前处理器缓存行的数据写回到系统内存&lt;&#x2F;li&gt;
+&lt;li&gt;该写回内存的操作会引起在其他CPU里缓存了该内存地址的数据无效&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;在上面介绍缓存一致性的时候提到了，在共享内存的多处理器体系架构中，每个处理器都拥有自己的缓存，并且定期地与主内存进行协调，在不同的处理器架构中提供了不同级别的缓存一致性。
+那么这个时候也就有了下面的事情：
+处理器为了提高处理速度，不直接和内存进行通讯，而是先将系统内存的数据读到内部缓存中再进行操作，但操作完成后不确定什么时候会写回到内存，如果对声明了Volatile变量进行些操作，JVM就会向处理器发送一条Lock前缀的指令，将这个变量所在缓存行的数据写回到系统内存。而由于缓存一致性协议，每个处理器会通过嗅探在总线上传播的数据在来检查自己缓存的值是不是过期了，当处理器发现自己缓存行对应的内存地址被修改，就会将当前处理器的缓存行设置为无效状态。当处理器要对这个数据进行修改操作的时候，就会强制从系统内存中重新读取数据到处理器缓存里。
+这也就是Volatile实现的原理。&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;zhong-pai-xu&quot;&gt;重排序&lt;&#x2F;h2&gt;
+&lt;p&gt;刚才上面总结到了重排序的概念，那什么是重排序呢？&lt;&#x2F;p&gt;
+&lt;p&gt;简单的理解就是，当程序在执行的时候，如果JVM认为两行代码之间的结果互不影响，那么在执行的过程中可能就会产生一个乱序的结果。
+例如：&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; style=&quot;background-color:#2e3440;color:#d8dee9;&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;a&lt;&#x2F;span&gt;&lt;span&gt; = 3&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;; 
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;b&lt;&#x2F;span&gt;&lt;span&gt; = 4&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;正常情况下我们会觉得a = 3肯定是比b=4先执行的，因为它在b的上面，但是实际上并不是这样，因为b的运行结果并不依赖上一行a的结果，因此JVM就能够对两行代码进行一个重排序，可能a先执行，也可能b先执行&lt;&#x2F;p&gt;
+&lt;p&gt;为什么要采用重排序？
+重排序通常是编译器或运行时环境为了优化程序性能而采取的。它可以分为两类：编译器重排序和运行时重排序。&lt;&#x2F;p&gt;
+&lt;p&gt;顺序一致性模型：理想的模型是，各种指令执行的顺序是唯一且有序的，这个顺序就是它们被编写在代码中的顺序，与处理器或其他因素无关&lt;&#x2F;p&gt;
+&lt;p&gt;顺序一致性模型的缺点：效率过低&lt;&#x2F;p&gt;
+&lt;p&gt;编译器重排序的典型就是通过调整指令顺序，在不改变程序语义的前提下，尽可能的减少寄存器的读取、存储次数、充分服用寄存器的存储值。&lt;&#x2F;p&gt;
+&lt;p&gt;假设第一条指令计算一个值赋给变量A并存放在寄存器中，第二条指令与A无关但需要占用寄存器（假设它将占用A所在的那个寄存器），第三条指令使用A的值且与第二条指令无关。那么如果按照顺序一致性模型，A在第一条指令执行过后被放入寄存器，在第二条指令执行时A不再存在，第三条指令执行时A重新被读入寄存器，而这个过程中，A的值没有发生变化。通常编译器都会交换第二和第三条指令的位置，这样第一条指令结束时A存在于寄存器中，接下来可以直接从寄存器中读取A的值，降低了重复读取的开销。&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;bing-fa-shi-de-luan-xu-wen-ti&quot;&gt;并发时的乱序问题&lt;&#x2F;h2&gt;
+&lt;p&gt;上面总结的重排序可以引起乱序，同样的，在并发时对局部变量进行操作也有可能会产生乱序的问题。因为在每个线程中都拥有一个独立的栈，也就是独立的线程空间，当它运行时，会从主内存中读取该变量的值并存放到自己的线程栈中，对变量操作完成后就会把值写回主内存空间。
+但是这里就有一个问题了，那就是变量的写回操作发生的时间并不能够确定。就算是线程A比线程B先读取数据，仍然有可能线程B先把值写回主内存，最终同样会造成一个得到的结果并不是我们想要的值。&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;happens-before-xian-xing-fa-sheng&quot;&gt;Happens-before（先行发生）&lt;&#x2F;h2&gt;
+&lt;p&gt;Java内存模型（JMM）为程序中所有的操作定义了一个偏序关系，称之为Happens-before。如果想要保证执行操作B的线程看到操作A的结果（无论A和B是否在同一个线程中执行），那么在A和B之间必须满足Happens-Before关系。如果两个操作时间缺乏Happens-Before关系，那么JVM可以对它们任意地重排序。&lt;&#x2F;p&gt;
+&lt;p&gt;当一个变量被多个线程读取并且至少被一个线程写入时，如果在读写操作之间没有按照Happens-Before来排序，那么就会产生数据竞争的问题。&lt;&#x2F;p&gt;
+&lt;p&gt;Happens-Before规则包括：&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;程序顺序规则：如果程序中操作A在操作B之前，那么在线程中A操作将在B操作之前执行&lt;&#x2F;li&gt;
+&lt;li&gt;监视器锁规则：在监视器锁上的解锁操作必须在同一个监视器锁上的加锁操作之前执行&lt;&#x2F;li&gt;
+&lt;li&gt;volatile变量规则：对volatile变量的写入操作必须在对该变量的读操作之前执行&lt;&#x2F;li&gt;
+&lt;li&gt;线程启动规则：在线程上对Thread.Start的调用必须在该县城中执行任何操作之前执行&lt;&#x2F;li&gt;
+&lt;li&gt;线程结束规则：县城中的任何操作都必须在其他线程检测到该线程已经结束之前执行，或者在Thread.join中成功返回，或者在调用THread.isAlive时返回false&lt;&#x2F;li&gt;
+&lt;li&gt;中断规则：当一个线程在另一个线程上调用interrupt时，必须在被中断线程检测到interrupt调用之前执行&lt;&#x2F;li&gt;
+&lt;li&gt;终结器规则：对象的构造函数必须在启动终结器之前执行&lt;&#x2F;li&gt;
+&lt;li&gt;传递性：操作A在B之前，B在C之前，那么A就必须在C之前执行&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;例如线程A：y=1 -》 lock M -》 x=1 -》unlock M
+线程B： lock M -》 i=x -》 unlock M -》 j=y&lt;&#x2F;p&gt;
+&lt;p&gt;当两个线程使用同一个锁进行同步时，在它们之间的happens-Before关系就是：A的unlock M执行完成之后才能执行B的lock M方法，如果这两个线程是在不同的锁上进行同步的，那么就不能推断它们之间的动作顺序，因为在这两个线程的操作之间并不存在Happens-Before关系&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;lock-synchronized-reentrantlock-du-zhan-suo-bei-guan-suo&quot;&gt;Lock &#x2F; Synchronized &#x2F; ReentrantLock（独占锁 &#x2F; 悲观锁）&lt;&#x2F;h2&gt;
+&lt;h3 id=&quot;synchronized&quot;&gt;Synchronized&lt;&#x2F;h3&gt;
+&lt;p&gt;内置锁，当它用来修饰一个方法或者一个代码块的时候，能够保证在同一时刻最多只有一个线程执行该段代码，另一个线程必须等待当前线程执行完这个代码快以后才能执行该代码块（未执行之前，该线程被阻塞）。同时，它也是一个可重入锁（Lock均可重入）&lt;&#x2F;p&gt;
+&lt;p&gt;但是这里有一个很关键的地方：当一个线程访问object的一个synchronized(this)同步代码块时，另一个线程仍然可以访问该object中的非synchronized(this)同步代码块。&lt;&#x2F;p&gt;
+&lt;p&gt;之前在单例模式中总结到了双重检查锁定模式，但是由于双重检查锁定模式在一定情况下存在很严重的Bug，就没有在该博客中写出。这里就对双重检查锁定模式进行一个分析&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;java&quot; style=&quot;background-color:#2e3440;color:#d8dee9;&quot; class=&quot;language-java &quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;public static &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;Singleton &lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;getInstance&lt;&#x2F;span&gt;&lt;span&gt;() {
+&lt;&#x2F;span&gt;&lt;span&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;if &lt;&#x2F;span&gt;&lt;span&gt;(singleton &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;== null&lt;&#x2F;span&gt;&lt;span&gt;) {
+&lt;&#x2F;span&gt;&lt;span&gt;            &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;synchronized &lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;Singleton&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;class&lt;&#x2F;span&gt;&lt;span&gt;) {
+&lt;&#x2F;span&gt;&lt;span&gt;               &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;if &lt;&#x2F;span&gt;&lt;span&gt;(singleton &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;== null&lt;&#x2F;span&gt;&lt;span&gt;) {
+&lt;&#x2F;span&gt;&lt;span&gt;                  singleton &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;= new &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;Singleton&lt;&#x2F;span&gt;&lt;span&gt;()&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;               }
+&lt;&#x2F;span&gt;&lt;span&gt;            }
+&lt;&#x2F;span&gt;&lt;span&gt;        }
+&lt;&#x2F;span&gt;&lt;span&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;return&lt;&#x2F;span&gt;&lt;span&gt; singleton&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;   
+&lt;&#x2F;span&gt;&lt;span&gt;    }
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;因为在new Singleton()的过程中，实际上是可以分为很多步的，可大致分为三件事情：&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;给Singleton的实例分配内存&lt;&#x2F;li&gt;
+&lt;li&gt;调用Singleton的构造函数，初始化字段&lt;&#x2F;li&gt;
+&lt;li&gt;将singleton对象指向分配的内存空间（singleton != null）&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;但是，Java编译器是允许处理器乱序执行的，所有有可能让第二步和第三步乱序执行，也就是说如果在第二步被乱序（安排到了最后一步执行），当他还没执行的时候切换到了线程B，这个时候就会因为singleton已经不为null而直接跳出if判断，这样的话在我们以后的代码运行过程中使用的就是一个未经构造函数初始化的一个对象。【现在好像有在JDK层面有改进因此可以正常使用，具体的不清楚，以后再修改】&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;lock&quot;&gt;Lock&lt;&#x2F;h3&gt;
+&lt;p&gt;Lock是一个接口，它里面主要包含了下面的几个方法：&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;java&quot; style=&quot;background-color:#2e3440;color:#d8dee9;&quot; class=&quot;language-java &quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span&gt;void &lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;lock&lt;&#x2F;span&gt;&lt;span&gt;()&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;void &lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;lockInterruptibly&lt;&#x2F;span&gt;&lt;span&gt;()&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;boolean &lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;tryLock&lt;&#x2F;span&gt;&lt;span&gt;()&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;boolean &lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;tryLock&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;long&lt;&#x2F;span&gt;&lt;span&gt; time&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;TimeUnit&lt;&#x2F;span&gt;&lt;span&gt; unit)&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;void &lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;unlock&lt;&#x2F;span&gt;&lt;span&gt;()&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;Condition &lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;newCondition&lt;&#x2F;span&gt;&lt;span&gt;()&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Lock它与内置加锁机制不同，它提供的是一种无条件的、可轮询的、定时的以及可中断的锁获取操作，所有的加锁和解锁的方法都是显式的。&lt;&#x2F;p&gt;
+&lt;p&gt;一句话总结：Synchronized算是Lock的简化版本，功能比之较少但是在程序执行完成后会自动释放锁，而Lock必须手动释放锁&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;reentrantlock&quot;&gt;ReentrantLock&lt;&#x2F;h3&gt;
+&lt;p&gt;ReentrantLock它实现了Lock接口，并提供了与synchronized相同的互斥性和内存可见性。
+那为什么还要提供一种机制跟内置锁十分相似的新加锁机制呢？
+因为内置锁在一定情况下存在局限性，例如无法中断一个正在等待获取锁的进程，或者无法在请求获取一个锁时无限地等待下去，；无法实现非阻塞结构的加锁规则。&lt;&#x2F;p&gt;
+&lt;p&gt;而在ReentrantLock中，它可以实现轮询锁、定时锁、中断锁等多种加锁方式，这也让它的应用场景变的更多。&lt;&#x2F;p&gt;
+&lt;p&gt;同时在性能上：如果有越多的资源被耗费在锁的管理和调度上，那么应用程序得到的资源就越少。锁的实现方式越好，就需要越少的系统调用和上下文切换，并且在共享内存总线上的内存同步通信量也越少。
+在Java5中，ReentrantLock的性能比内置锁高了很多，但是在Java6中内置锁采取了一种类似与ReentrantLock中使用的算法来管理内置锁，有效地提高了可伸缩性，因此在Java6中，它们的吞吐量就非常接近了。&lt;&#x2F;p&gt;
+&lt;p&gt;在公平性上，ReentrantLock可以创建一个非公平锁（默认）也可以创建一个公平锁。
+公平锁：线程按照发出请求的顺序来获得锁（先到先得，不准插队）
+非公平锁：当一个线程请求非公平锁时，如果在发出请求的同时该锁的状态变为可用，那么就跳过队列中所有的等待队列立刻获得锁（也就是允许插队。申请的时候锁为可用状态就直接获取）&lt;&#x2F;p&gt;
+&lt;p&gt;而对于公平锁和非公平锁来说，它们的效率也是显而易见的：
+公平性将由于在挂起线程和恢复线程时存在的开销而极大的降低效率。
+而非公平性由于是在请求时锁已经为可用状态就直接获取，不需要进行什么额外的操作，因此效率更高。
+实际上：确保被阻塞的线程能最终获得锁就已经够用了，并且实际开销也小很多。&lt;&#x2F;p&gt;
+&lt;p&gt;当在一个激烈竞争的情况下，恢复一个被挂起的线程与这个线程真正开始运行之间存在着严重的延迟，这样的话就影响了效率。而如果我们采用非公平锁（也就是ReentrantLock的默认方式），线程A释放锁时，B被唤醒然后尝试获取锁，与此同时C也请求这个锁，那么C很有可能会在B被完全唤醒之前获得、使用以及释放这个锁。也就有可能会造成B获得锁的时刻并没有推迟，C也更早的获得了锁&lt;&#x2F;p&gt;
+&lt;p&gt;那什么时候应该使用公平锁呢？
+当持有锁的时间相对较长，或者请求锁的平均时间间隔较长，那么就应该使用公平锁。&lt;&#x2F;p&gt;
+&lt;p&gt;在Synchronize和ReentrantLock中如何选择
+上面总结了这么多，好像ReentrantLock的优点比Synchronize好太多，那为什么不直接取消掉Synchronize呢？我们自己该怎么选择呢？&lt;&#x2F;p&gt;
+&lt;p&gt;Synchronize很重要的几个优点就是：&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;无需手动释放锁，程序自动完成。如果在使用Lock的过程中忘记在finally中释放锁，那么虽然代码表面上能正式运行，但是实际上已经出了大问题，还有可能伤到其他代码。所以一般仅仅是在做一些内置锁不能完成的需求时才考虑使用ReentrantLock，例如中断锁、轮询锁等等&lt;&#x2F;li&gt;
+&lt;li&gt;调试的问题：Synchronized在线程存储中能够给出在哪些调用帧中获得了哪些锁，并能够检测和识别发生死锁的进程。而ReentrantLock它只是一个对象，JVM不知道哪些线程持有这个。&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h2 id=&quot;fei-zu-sai-tong-bu-ji-zhi-le-guan-suo&quot;&gt;非阻塞同步机制（乐观锁）&lt;&#x2F;h2&gt;
+&lt;p&gt;加锁机制始终会存在一个挂起唤醒的操作，如果有多个线程同时请求锁，那么JVM就需要借助操作系统的功能，而在挂起和恢复线程等过程中存在着很大的开销，并且通常存在着较长时间的中断。如果在竞争激烈的时候，调度开销与工作开销的比值会非常高。&lt;&#x2F;p&gt;
+&lt;p&gt;此外，如果一个线程正在等待锁时，它不能做任何其他事情，同时如果被阻塞线程的优先级较高，而持有锁的线程优先级较低，那么问题更严重，也就是发生了优先级反转。即：高优先级的线程必须等到低优先级的线程释放锁，从而导致它的优先级会降低至低优先级线程的级别。&lt;&#x2F;p&gt;
+&lt;p&gt;而最近的很多并发算法研究都侧重于非阻塞同步的机制，例如：Lock-free算法&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;lock-freesuan-fa-wu-suo&quot;&gt;Lock-free算法（无锁）&lt;&#x2F;h2&gt;
+&lt;p&gt;这个算法中主要使用到了一个CAS机制（Compare and swap），它包含了3个值，需要读写的内存位置V，需要进行比较的值A， 要写入的新值B。
+它的原理就是：&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;当且仅当V的值等于A时，CAS才会通过原子方式用新值B来更新V的值，否则不执行任何操作&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;而当多个线程常识使用CAS同时更新同一个变量时，只有其中一个线程能更新变量的值，而其他的线程都将失败。但是失败的线程并不会被挂起，而是被告知在这次竞争中失败，并可以尝试再次尝试。由于一个线程在竞争CAS时失败不会阻塞，因此它可以决定是否重新尝试，或者执行一些恢复操作，再或者不执行任何操作，这种灵活性就大大减少了与锁相关的活跃性风险。&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;can-kao&quot;&gt;参考&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;《Java并发编程实战》&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
+    </entry>
+    <entry xml:lang="en">
+        <title>Goson使用总结</title>
+        <published>2019-10-03T00:00:00+00:00</published>
+        <updated>2019-10-03T00:00:00+00:00</updated>
+        <author>
+          <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://nova-me.github.io/blog/goson/" type="text/html"/>
+        <id>https://nova-me.github.io/blog/goson/</id>
+        <content type="html">&lt;p&gt;这篇文章是对Gson的内部实现原理进行一个总结&lt;&#x2F;p&gt;
+&lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;&lt;h2 id=&quot;chuang-jian-fang-fa&quot;&gt;创建方法&lt;&#x2F;h2&gt;
+&lt;p&gt;Gson可以由两种方式创建，一种是通过Gson.Builder()的方式，另一种则是通过new Gson()来创建。&lt;&#x2F;p&gt;
+&lt;p&gt;那这两种创建方式有什么不同呢？&lt;&#x2F;p&gt;
+&lt;p&gt;第一种Gson.Builder()的方法没有使用反射，而new Gson()是使用了反射的。&lt;&#x2F;p&gt;
+&lt;p&gt;在Gson内部存在着TypeAdapter，也就是根据不同的类型来适配，当我们使用Gson.Builder()创建时，使用的是自定义的TypeAdapter而不是默认的TypeAdapter，因此也就出现了一个为反射，一个不是反射&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;java&quot; style=&quot;background-color:#2e3440;color:#d8dee9;&quot; class=&quot;language-java &quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;Gson&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;Excluder&lt;&#x2F;span&gt;&lt;span&gt; excluder&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;FieldNamingStrategy&lt;&#x2F;span&gt;&lt;span&gt; fieldNamingPolicy&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;Map&lt;&#x2F;span&gt;&lt;span&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;Type&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;InstanceCreator&lt;&#x2F;span&gt;&lt;span&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;?&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;&amp;gt; instanceCreators&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;boolean&lt;&#x2F;span&gt;&lt;span&gt; serializeNulls&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;boolean&lt;&#x2F;span&gt;&lt;span&gt; complexMapKeySerialization&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;boolean&lt;&#x2F;span&gt;&lt;span&gt; generateNonExecutableGson&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;boolean&lt;&#x2F;span&gt;&lt;span&gt; htmlSafe&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;boolean&lt;&#x2F;span&gt;&lt;span&gt; prettyPrinting&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;boolean&lt;&#x2F;span&gt;&lt;span&gt; serializeSpecialFloatingPointValues&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;LongSerializationPolicy&lt;&#x2F;span&gt;&lt;span&gt; longSerializationPolicy&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;List&lt;&#x2F;span&gt;&lt;span&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;TypeAdapterFactory&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt; typeAdapterFactories) {
+&lt;&#x2F;span&gt;&lt;span&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;this&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span&gt;calls &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;= new &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;ThreadLocal&lt;&#x2F;span&gt;&lt;span&gt;()&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;this&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span&gt;typeTokenCache &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;Collections&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;synchronizedMap&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;new &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;HashMap&lt;&#x2F;span&gt;&lt;span&gt;())&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;this&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span&gt;deserializationContext &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;= new &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;JsonDeserializationContext&lt;&#x2F;span&gt;&lt;span&gt;() {
+&lt;&#x2F;span&gt;&lt;span&gt;            &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;public &lt;&#x2F;span&gt;&lt;span&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;T&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;T &lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;deserialize&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;JsonElement &lt;&#x2F;span&gt;&lt;span&gt;json&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;Type &lt;&#x2F;span&gt;&lt;span&gt;typeOfT) throws &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;JsonParseException &lt;&#x2F;span&gt;&lt;span&gt;{
+&lt;&#x2F;span&gt;&lt;span&gt;                &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;return &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;Gson&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;this&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;fromJson&lt;&#x2F;span&gt;&lt;span&gt;(json&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;,&lt;&#x2F;span&gt;&lt;span&gt; typeOfT)&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;            }
+&lt;&#x2F;span&gt;&lt;span&gt;        }&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;this&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span&gt;serializationContext &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;= new &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;JsonSerializationContext&lt;&#x2F;span&gt;&lt;span&gt;() {
+&lt;&#x2F;span&gt;&lt;span&gt;            &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;public &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;JsonElement &lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;serialize&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;Object &lt;&#x2F;span&gt;&lt;span&gt;src) {
+&lt;&#x2F;span&gt;&lt;span&gt;                &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;return &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;Gson&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;this&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;toJsonTree&lt;&#x2F;span&gt;&lt;span&gt;(src)&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;            }
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;            &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;public &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;JsonElement &lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;serialize&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;Object &lt;&#x2F;span&gt;&lt;span&gt;src&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;Type &lt;&#x2F;span&gt;&lt;span&gt;typeOfSrc) {
+&lt;&#x2F;span&gt;&lt;span&gt;                &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;return &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;Gson&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;this&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;toJsonTree&lt;&#x2F;span&gt;&lt;span&gt;(src&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;,&lt;&#x2F;span&gt;&lt;span&gt; typeOfSrc)&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;            }
+&lt;&#x2F;span&gt;&lt;span&gt;        }&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;this&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span&gt;constructorConstructor &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;= new &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;ConstructorConstructor&lt;&#x2F;span&gt;&lt;span&gt;(instanceCreators)&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;this&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span&gt;serializeNulls &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span&gt; serializeNulls&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;this&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span&gt;generateNonExecutableJson &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span&gt; generateNonExecutableGson&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;this&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span&gt;htmlSafe &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span&gt; htmlSafe&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;this&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span&gt;prettyPrinting &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span&gt; prettyPrinting&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;ArrayList&lt;&#x2F;span&gt;&lt;span&gt; factories &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;= new &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;ArrayList&lt;&#x2F;span&gt;&lt;span&gt;()&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;        factories&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;add&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;TypeAdapters&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span&gt;JSON_ELEMENT_FACTORY)&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;        factories&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;add&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;ObjectTypeAdapter&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span&gt;FACTORY)&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;        factories&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;add&lt;&#x2F;span&gt;&lt;span&gt;(excluder)&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;        factories&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;addAll&lt;&#x2F;span&gt;&lt;span&gt;(typeAdapterFactories)&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;        factories&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;add&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;TypeAdapters&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span&gt;STRING_FACTORY)&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;        factories&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;add&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;TypeAdapters&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span&gt;INTEGER_FACTORY)&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;        factories&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;add&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;TypeAdapters&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span&gt;BOOLEAN_FACTORY)&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;        factories&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;add&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;TypeAdapters&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span&gt;BYTE_FACTORY)&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;        factories&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;add&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;TypeAdapters&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span&gt;SHORT_FACTORY)&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;        factories&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;add&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;TypeAdapters&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;newFactory&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;Long&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span&gt;TYPE&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;Long&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;class&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;this&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;longAdapter&lt;&#x2F;span&gt;&lt;span&gt;(longSerializationPolicy)))&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;        factories&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;add&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;TypeAdapters&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;newFactory&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;Double&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span&gt;TYPE&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;Double&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;class&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;this&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;doubleAdapter&lt;&#x2F;span&gt;&lt;span&gt;(serializeSpecialFloatingPointValues)))&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;        factories&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;add&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;TypeAdapters&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;newFactory&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;Float&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span&gt;TYPE&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;Float&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;class&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;this&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;floatAdapter&lt;&#x2F;span&gt;&lt;span&gt;(serializeSpecialFloatingPointValues)))&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;        factories&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;add&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;TypeAdapters&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span&gt;NUMBER_FACTORY)&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;        factories&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;add&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;TypeAdapters&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span&gt;CHARACTER_FACTORY)&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;        factories&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;add&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;TypeAdapters&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span&gt;STRING_BUILDER_FACTORY)&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;        factories&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;add&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;TypeAdapters&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span&gt;STRING_BUFFER_FACTORY)&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;        factories&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;add&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;TypeAdapters&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;newFactory&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;BigDecimal&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;class&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;TypeAdapters&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span&gt;BIG_DECIMAL))&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;        factories&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;add&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;TypeAdapters&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;newFactory&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;BigInteger&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;class&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;TypeAdapters&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span&gt;BIG_INTEGER))&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;        factories&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;add&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;TypeAdapters&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span&gt;URL_FACTORY)&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;        factories&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;add&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;TypeAdapters&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span&gt;URI_FACTORY)&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;        factories&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;add&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;TypeAdapters&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span&gt;UUID_FACTORY)&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;        factories&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;add&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;TypeAdapters&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span&gt;LOCALE_FACTORY)&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;        factories&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;add&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;TypeAdapters&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span&gt;INET_ADDRESS_FACTORY)&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;        factories&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;add&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;TypeAdapters&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span&gt;BIT_SET_FACTORY)&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;        factories&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;add&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;DateTypeAdapter&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span&gt;FACTORY)&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;        factories&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;add&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;TypeAdapters&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span&gt;CALENDAR_FACTORY)&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;        factories&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;add&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;TimeTypeAdapter&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span&gt;FACTORY)&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;        factories&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;add&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;SqlDateTypeAdapter&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span&gt;FACTORY)&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;        factories&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;add&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;TypeAdapters&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span&gt;TIMESTAMP_FACTORY)&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;        factories&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;add&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;ArrayTypeAdapter&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span&gt;FACTORY)&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;        factories&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;add&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;TypeAdapters&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span&gt;ENUM_FACTORY)&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;        factories&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;add&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;TypeAdapters&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span&gt;CLASS_FACTORY)&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;        factories&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;add&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;new &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;CollectionTypeAdapterFactory&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;this&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span&gt;constructorConstructor))&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;        factories&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;add&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;new &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;MapTypeAdapterFactory&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;this&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span&gt;constructorConstructor&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;,&lt;&#x2F;span&gt;&lt;span&gt; complexMapKeySerialization))&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;        factories&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;add&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;new &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;ReflectiveTypeAdapterFactory&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;this&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span&gt;constructorConstructor&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;,&lt;&#x2F;span&gt;&lt;span&gt; fieldNamingPolicy&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;,&lt;&#x2F;span&gt;&lt;span&gt; excluder))&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;this&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span&gt;factories &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;Collections&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;unmodifiableList&lt;&#x2F;span&gt;&lt;span&gt;(factories)&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;    }
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;那Gson如何判断我们使用的是哪一种方法创建呢？其实就是通过factories这个对象 add Factory的顺序来控制的。每次获取Adapter的时候都需要遍历Factories，而我们自定义的TypeAdapter在add时是会默认添加到靠前的位置。所以这样就避免了Gson的反射解析&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;ru-he-shi-xian-jie-xi&quot;&gt;如何实现解析&lt;&#x2F;h2&gt;
+&lt;p&gt;Gson中存在一个JsonParser类，它的作用就是将json串解析成JsonElement对象。&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;java&quot; style=&quot;background-color:#2e3440;color:#d8dee9;&quot; class=&quot;language-java &quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;public &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;JsonElement &lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;parse&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;String&lt;&#x2F;span&gt;&lt;span&gt; json) throws &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;JsonSyntaxException &lt;&#x2F;span&gt;&lt;span&gt;{
+&lt;&#x2F;span&gt;&lt;span&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;return this&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;parse&lt;&#x2F;span&gt;&lt;span&gt;((&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;Reader&lt;&#x2F;span&gt;&lt;span&gt;)(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;new &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;StringReader&lt;&#x2F;span&gt;&lt;span&gt;(json)))&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;    }
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;public &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;JsonElement &lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;parse&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;Reader&lt;&#x2F;span&gt;&lt;span&gt; json) throws &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;JsonIOException&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;JsonSyntaxException &lt;&#x2F;span&gt;&lt;span&gt;{
+&lt;&#x2F;span&gt;&lt;span&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;try &lt;&#x2F;span&gt;&lt;span&gt;{
+&lt;&#x2F;span&gt;&lt;span&gt;            &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;JsonReader&lt;&#x2F;span&gt;&lt;span&gt; e &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;= new &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;JsonReader&lt;&#x2F;span&gt;&lt;span&gt;(json)&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;            &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;JsonElement&lt;&#x2F;span&gt;&lt;span&gt; element &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;= this&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;parse&lt;&#x2F;span&gt;&lt;span&gt;(e)&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;            &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;if&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;!&lt;&#x2F;span&gt;&lt;span&gt;element&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;isJsonNull&lt;&#x2F;span&gt;&lt;span&gt;() &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;&amp;amp;&amp;amp;&lt;&#x2F;span&gt;&lt;span&gt; e&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;peek&lt;&#x2F;span&gt;&lt;span&gt;() &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;!= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;JsonToken&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span&gt;END_DOCUMENT) {
+&lt;&#x2F;span&gt;&lt;span&gt;                &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;throw new &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;JsonSyntaxException&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&amp;quot;Did not consume the entire document.&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;)&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;            } &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;else &lt;&#x2F;span&gt;&lt;span&gt;{
+&lt;&#x2F;span&gt;&lt;span&gt;                &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;return&lt;&#x2F;span&gt;&lt;span&gt; element&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;            }
+&lt;&#x2F;span&gt;&lt;span&gt;        } &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;catch &lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;MalformedJsonException &lt;&#x2F;span&gt;&lt;span&gt;var4) {
+&lt;&#x2F;span&gt;&lt;span&gt;            &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;throw new &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;JsonSyntaxException&lt;&#x2F;span&gt;&lt;span&gt;(var4)&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;        } &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;catch &lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;IOException &lt;&#x2F;span&gt;&lt;span&gt;var5) {
+&lt;&#x2F;span&gt;&lt;span&gt;            &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;throw new &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;JsonIOException&lt;&#x2F;span&gt;&lt;span&gt;(var5)&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;        } &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;catch &lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;NumberFormatException &lt;&#x2F;span&gt;&lt;span&gt;var6) {
+&lt;&#x2F;span&gt;&lt;span&gt;            &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;throw new &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;JsonSyntaxException&lt;&#x2F;span&gt;&lt;span&gt;(var6)&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;        }
+&lt;&#x2F;span&gt;&lt;span&gt;    }
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;public &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;JsonElement &lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;parse&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;JsonReader&lt;&#x2F;span&gt;&lt;span&gt; json) throws &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;JsonIOException&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;JsonSyntaxException &lt;&#x2F;span&gt;&lt;span&gt;{
+&lt;&#x2F;span&gt;&lt;span&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;boolean&lt;&#x2F;span&gt;&lt;span&gt; lenient &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span&gt; json&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;isLenient&lt;&#x2F;span&gt;&lt;span&gt;()&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;        json&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;setLenient&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;true&lt;&#x2F;span&gt;&lt;span&gt;)&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;JsonElement&lt;&#x2F;span&gt;&lt;span&gt; e&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;try &lt;&#x2F;span&gt;&lt;span&gt;{
+&lt;&#x2F;span&gt;&lt;span&gt;            e &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;Streams&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;parse&lt;&#x2F;span&gt;&lt;span&gt;(json)&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;        } &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;catch &lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;StackOverflowError &lt;&#x2F;span&gt;&lt;span&gt;var8) {
+&lt;&#x2F;span&gt;&lt;span&gt;            &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;throw new &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;JsonParseException&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&amp;quot;Failed parsing JSON source: &amp;quot; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;+&lt;&#x2F;span&gt;&lt;span&gt; json &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;+ &lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&amp;quot; to Json&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;,&lt;&#x2F;span&gt;&lt;span&gt; var8)&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;        } &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;catch &lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;OutOfMemoryError &lt;&#x2F;span&gt;&lt;span&gt;var9) {
+&lt;&#x2F;span&gt;&lt;span&gt;            &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;throw new &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;JsonParseException&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&amp;quot;Failed parsing JSON source: &amp;quot; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;+&lt;&#x2F;span&gt;&lt;span&gt; json &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;+ &lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&amp;quot; to Json&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;,&lt;&#x2F;span&gt;&lt;span&gt; var9)&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;        } &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;finally &lt;&#x2F;span&gt;&lt;span&gt;{
+&lt;&#x2F;span&gt;&lt;span&gt;            json&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;setLenient&lt;&#x2F;span&gt;&lt;span&gt;(lenient)&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;        }
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;return&lt;&#x2F;span&gt;&lt;span&gt; e&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;    }
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;注意上面的第三个方法，里面实际上返回的是Stream.parse(json)&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;java&quot; style=&quot;background-color:#2e3440;color:#d8dee9;&quot; class=&quot;language-java &quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;public static &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;JsonElement &lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;parse&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;JsonReader&lt;&#x2F;span&gt;&lt;span&gt; reader) throws &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;JsonParseException &lt;&#x2F;span&gt;&lt;span&gt;{
+&lt;&#x2F;span&gt;&lt;span&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;boolean&lt;&#x2F;span&gt;&lt;span&gt; isEmpty &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;= true&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;try &lt;&#x2F;span&gt;&lt;span&gt;{
+&lt;&#x2F;span&gt;&lt;span&gt;            reader&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;peek&lt;&#x2F;span&gt;&lt;span&gt;()&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;            isEmpty &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;= false&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;            &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;return &lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;JsonElement&lt;&#x2F;span&gt;&lt;span&gt;)&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;TypeAdapters&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span&gt;JSON_ELEMENT&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;read&lt;&#x2F;span&gt;&lt;span&gt;(reader)&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;        } &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;catch &lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;EOFException &lt;&#x2F;span&gt;&lt;span&gt;var3) {
+&lt;&#x2F;span&gt;&lt;span&gt;            &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;if&lt;&#x2F;span&gt;&lt;span&gt;(isEmpty) {
+&lt;&#x2F;span&gt;&lt;span&gt;                &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;return &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;JsonNull&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span&gt;INSTANCE&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;            } &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;else &lt;&#x2F;span&gt;&lt;span&gt;{
+&lt;&#x2F;span&gt;&lt;span&gt;                &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;throw new &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;JsonSyntaxException&lt;&#x2F;span&gt;&lt;span&gt;(var3)&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;            }
+&lt;&#x2F;span&gt;&lt;span&gt;        } &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;catch &lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;MalformedJsonException &lt;&#x2F;span&gt;&lt;span&gt;var4) {
+&lt;&#x2F;span&gt;&lt;span&gt;            &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;throw new &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;JsonSyntaxException&lt;&#x2F;span&gt;&lt;span&gt;(var4)&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;        } &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;catch &lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;IOException &lt;&#x2F;span&gt;&lt;span&gt;var5) {
+&lt;&#x2F;span&gt;&lt;span&gt;            &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;throw new &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;JsonIOException&lt;&#x2F;span&gt;&lt;span&gt;(var5)&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;        } &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;catch &lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;NumberFormatException &lt;&#x2F;span&gt;&lt;span&gt;var6) {
+&lt;&#x2F;span&gt;&lt;span&gt;            &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;throw new &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;JsonSyntaxException&lt;&#x2F;span&gt;&lt;span&gt;(var6)&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;        }
+&lt;&#x2F;span&gt;&lt;span&gt;    }
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;这里又返回了TypeAdapters.JSON_ELEMENT.read(reader)方法，那我们就来看看read方法又返回了什么。&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;java&quot; style=&quot;background-color:#2e3440;color:#d8dee9;&quot; class=&quot;language-java &quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;public &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;JsonElement &lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;read&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;JsonReader&lt;&#x2F;span&gt;&lt;span&gt; in) throws &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;IOException &lt;&#x2F;span&gt;&lt;span&gt;{
+&lt;&#x2F;span&gt;&lt;span&gt;                &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;switch&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;TypeAdapters&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;SyntheticClass_1&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;SwitchMap$com$google$gson$stream$JsonToken&lt;&#x2F;span&gt;&lt;span&gt;[in&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;peek&lt;&#x2F;span&gt;&lt;span&gt;()&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;ordinal&lt;&#x2F;span&gt;&lt;span&gt;()]) {
+&lt;&#x2F;span&gt;&lt;span&gt;                &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;case &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;:
+&lt;&#x2F;span&gt;&lt;span&gt;                    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;String&lt;&#x2F;span&gt;&lt;span&gt; number &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span&gt; in&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;nextString&lt;&#x2F;span&gt;&lt;span&gt;()&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;                    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;return new &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;JsonPrimitive&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;new &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;LazilyParsedNumber&lt;&#x2F;span&gt;&lt;span&gt;(number))&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;                &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;case &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;2&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;:
+&lt;&#x2F;span&gt;&lt;span&gt;                    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;return new &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;JsonPrimitive&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;Boolean&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;valueOf&lt;&#x2F;span&gt;&lt;span&gt;(in&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;nextBoolean&lt;&#x2F;span&gt;&lt;span&gt;()))&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;                &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;case &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;3&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;:
+&lt;&#x2F;span&gt;&lt;span&gt;                    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;return new &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;JsonPrimitive&lt;&#x2F;span&gt;&lt;span&gt;(in&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;nextString&lt;&#x2F;span&gt;&lt;span&gt;())&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;                &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;case &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;4&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;:
+&lt;&#x2F;span&gt;&lt;span&gt;                    in&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;nextNull&lt;&#x2F;span&gt;&lt;span&gt;()&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;                    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;return &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;JsonNull&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span&gt;INSTANCE&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;                &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;case &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;5&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;:
+&lt;&#x2F;span&gt;&lt;span&gt;                    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;JsonArray&lt;&#x2F;span&gt;&lt;span&gt; array &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;= new &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;JsonArray&lt;&#x2F;span&gt;&lt;span&gt;()&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;                    in&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;beginArray&lt;&#x2F;span&gt;&lt;span&gt;()&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;                    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;while&lt;&#x2F;span&gt;&lt;span&gt;(in&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;hasNext&lt;&#x2F;span&gt;&lt;span&gt;()) {
+&lt;&#x2F;span&gt;&lt;span&gt;                        array&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;add&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;this&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;read&lt;&#x2F;span&gt;&lt;span&gt;(in))&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;                    }
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;                    in&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;endArray&lt;&#x2F;span&gt;&lt;span&gt;()&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;                    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;return&lt;&#x2F;span&gt;&lt;span&gt; array&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;                &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;case &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;6&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;:
+&lt;&#x2F;span&gt;&lt;span&gt;                    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;JsonObject&lt;&#x2F;span&gt;&lt;span&gt; object &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;= new &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;JsonObject&lt;&#x2F;span&gt;&lt;span&gt;()&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;                    in&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;beginObject&lt;&#x2F;span&gt;&lt;span&gt;()&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;                    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;while&lt;&#x2F;span&gt;&lt;span&gt;(in&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;hasNext&lt;&#x2F;span&gt;&lt;span&gt;()) {
+&lt;&#x2F;span&gt;&lt;span&gt;                        object&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;add&lt;&#x2F;span&gt;&lt;span&gt;(in&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;nextName&lt;&#x2F;span&gt;&lt;span&gt;()&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;this&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;read&lt;&#x2F;span&gt;&lt;span&gt;(in))&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;                    }
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;                    in&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;endObject&lt;&#x2F;span&gt;&lt;span&gt;()&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;                    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;return&lt;&#x2F;span&gt;&lt;span&gt; object&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;                &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;case &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;7&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;:
+&lt;&#x2F;span&gt;&lt;span&gt;                &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;case &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;8&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;:
+&lt;&#x2F;span&gt;&lt;span&gt;                &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;case &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;9&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;:
+&lt;&#x2F;span&gt;&lt;span&gt;                &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;case &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;10&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;:
+&lt;&#x2F;span&gt;&lt;span&gt;                &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;default:
+&lt;&#x2F;span&gt;&lt;span&gt;                    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;throw new &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;IllegalArgumentException&lt;&#x2F;span&gt;&lt;span&gt;()&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;                }
+&lt;&#x2F;span&gt;&lt;span&gt;            }
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;从这上面的case我们不难看出，这里实际上就是根据不同的数据类型进行不同的数据解析。例如case 6,针对的是一个object类型，也就获取它的name和value放入object中，case 5则是针对的Array类型。&lt;&#x2F;p&gt;
+&lt;p&gt;所以实际上就是解析Json，然后返回一个调用者想要的对象&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;yi-ju-hua-zong-jie&quot;&gt;一句话总结&lt;&#x2F;h2&gt;
+&lt;p&gt;两种创建方式，区别在于一个是反射一个不是反射。如果想要避免使用反射，自定义TypeAdapter即可，factories会自动将其添加到list的前面，当使用时就会优先遍历到指定的adapter。
+JsonParser对Json串进行解析处理，根据对应的数据类型最终返回给用户一个指定的对象。这也就是我们创建一个对象实体类的原因&lt;&#x2F;p&gt;
+</content>
+    </entry>
+    <entry xml:lang="en">
+        <title>Java并发总结（一）</title>
+        <published>2019-09-25T00:00:00+00:00</published>
+        <updated>2019-09-25T00:00:00+00:00</updated>
+        <author>
+          <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://nova-me.github.io/blog/java/" type="text/html"/>
+        <id>https://nova-me.github.io/blog/java/</id>
+        <content type="html">&lt;p&gt;本文只是对Java并发知识的一个总结, Java并发是一个很难的问题，不是一篇博文能够说清，以后还需在实践中多多积累学习才是。&lt;&#x2F;p&gt;
+&lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;&lt;h2 id=&quot;duo-xian-cheng-de-gai-nian&quot;&gt;多线程的概念&lt;&#x2F;h2&gt;
+&lt;p&gt;多线程程序在较低的层次上扩展了多任务的概念：一个程序同时执行多个任务。通常，
+每一个任务称为一个线程（ thread), 它是线程控制的简称。可以同时运行一个以上线程的程
+序称为多线程程序（multithreaded)。
+那么，多进程与多线程有哪些区别呢？ 本质的区别在于每个进程拥有自己的一整套变
+量， 而线程则共享数据。 这听起来似乎有些风险， 的确也是这样， 在本章稍后将可以看到这
+个问题。然而，共享变量使线程之间的通信比进程之间的通信更有效、 更容易。 此外， 在有
+些操作系统中，与进程相比较， 线程更“ 轻量级”， 创建、 撤销一个线程比启动新进程的开
+销要小得多。&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;xian-cheng-zhuang-tai&quot;&gt;线程状态&lt;&#x2F;h2&gt;
+&lt;p&gt;Java线程包含如下状态：&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;new(新创建)&lt;&#x2F;li&gt;
+&lt;li&gt;Runnable(可运行)&lt;&#x2F;li&gt;
+&lt;li&gt;Blocked(被阻塞)&lt;&#x2F;li&gt;
+&lt;li&gt;Waiting(等待)&lt;&#x2F;li&gt;
+&lt;li&gt;Timed waiting(计时等待)&lt;&#x2F;li&gt;
+&lt;li&gt;Terminated(被终止)&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;docs.oracle.com&#x2F;javase&#x2F;9&#x2F;docs&#x2F;api&#x2F;java&#x2F;lang&#x2F;Thread.State.html&quot;&gt;Java SE9 Enum Thread.State&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h2 id=&quot;xian-cheng-shu-xing&quot;&gt;线程属性&lt;&#x2F;h2&gt;
+&lt;p&gt;Java线程包含如下属性：&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Priority(优先级)&lt;&#x2F;li&gt;
+&lt;li&gt;Daemon thread(守护线程)&lt;&#x2F;li&gt;
+&lt;li&gt;未捕获异常处理&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h3 id=&quot;you-xian-ji&quot;&gt;优先级&lt;&#x2F;h3&gt;
+&lt;pre data-lang=&quot;java&quot; style=&quot;background-color:#2e3440;color:#d8dee9;&quot; class=&quot;language-java &quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;public final static int &lt;&#x2F;span&gt;&lt;span&gt;MIN_PRIORITY &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;public final static int &lt;&#x2F;span&gt;&lt;span&gt;NORM_PRIORITY &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;5&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;public final static int &lt;&#x2F;span&gt;&lt;span&gt;MAX_PRIORITY &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;10&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;public final&lt;&#x2F;span&gt;&lt;span&gt; void &lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;setPriority&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;int&lt;&#x2F;span&gt;&lt;span&gt; newPriority) {
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;ThreadGroup&lt;&#x2F;span&gt;&lt;span&gt; g&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;checkAccess&lt;&#x2F;span&gt;&lt;span&gt;()&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;if &lt;&#x2F;span&gt;&lt;span&gt;(newPriority &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;&amp;gt; &lt;&#x2F;span&gt;&lt;span&gt;MAX_PRIORITY &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;||&lt;&#x2F;span&gt;&lt;span&gt; newPriority &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;&amp;lt; &lt;&#x2F;span&gt;&lt;span&gt;MIN_PRIORITY) {
+&lt;&#x2F;span&gt;&lt;span&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;throw new &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;IllegalArgumentException&lt;&#x2F;span&gt;&lt;span&gt;()&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;    }
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;if &lt;&#x2F;span&gt;&lt;span&gt;((g &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;getThreadGroup&lt;&#x2F;span&gt;&lt;span&gt;()) &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;!= null&lt;&#x2F;span&gt;&lt;span&gt;) {
+&lt;&#x2F;span&gt;&lt;span&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;if &lt;&#x2F;span&gt;&lt;span&gt;(newPriority &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;span&gt; g&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;getMaxPriority&lt;&#x2F;span&gt;&lt;span&gt;()) {
+&lt;&#x2F;span&gt;&lt;span&gt;            newPriority &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span&gt; g&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;getMaxPriority&lt;&#x2F;span&gt;&lt;span&gt;()&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;        }
+&lt;&#x2F;span&gt;&lt;span&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;setPriority0&lt;&#x2F;span&gt;&lt;span&gt;(priority &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span&gt; newPriority)&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;    }
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Java线程优先级默认值为5，取值区间为1-10的一个整数&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;shou-hu-xian-cheng&quot;&gt;守护线程&lt;&#x2F;h3&gt;
+&lt;pre data-lang=&quot;java&quot; style=&quot;background-color:#2e3440;color:#d8dee9;&quot; class=&quot;language-java &quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;public final&lt;&#x2F;span&gt;&lt;span&gt; void &lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;setDaemon&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;boolean&lt;&#x2F;span&gt;&lt;span&gt; on) {
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;checkAccess&lt;&#x2F;span&gt;&lt;span&gt;()&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;if &lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;isAlive&lt;&#x2F;span&gt;&lt;span&gt;()) {
+&lt;&#x2F;span&gt;&lt;span&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;throw new &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;IllegalThreadStateException&lt;&#x2F;span&gt;&lt;span&gt;()&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;    }
+&lt;&#x2F;span&gt;&lt;span&gt;    daemon &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span&gt; on&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;pre data-lang=&quot;java&quot; style=&quot;background-color:#2e3440;color:#d8dee9;&quot; class=&quot;language-java &quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;public static&lt;&#x2F;span&gt;&lt;span&gt; void &lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;main&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;String&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;[]&lt;&#x2F;span&gt;&lt;span&gt; args) {
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;Thread&lt;&#x2F;span&gt;&lt;span&gt; thread &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;= new &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;Thread&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;new &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;MyRunnable&lt;&#x2F;span&gt;&lt;span&gt;())&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;    thread&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;setDaemon&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;true&lt;&#x2F;span&gt;&lt;span&gt;)&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;守护线程是程序运行时在后台提供服务的线程，不属于程序中不可或缺的部分。&lt;&#x2F;p&gt;
+&lt;p&gt;当所有非守护线程结束时，程序也就终止，同时会杀死所有守护线程。&lt;&#x2F;p&gt;
+&lt;p&gt;main() 属于非守护线程。&lt;&#x2F;p&gt;
+&lt;p&gt;在线程启动之前使用 setDaemon() 方法可以将一个线程设置为守护线程。&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;xian-cheng-chuang-jian-fang-shi&quot;&gt;线程创建方式&lt;&#x2F;h2&gt;
+&lt;p&gt;有三种使用线程的方式：&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;实现Runnable接口&lt;&#x2F;li&gt;
+&lt;li&gt;实现Callable接口&lt;&#x2F;li&gt;
+&lt;li&gt;继承Thread类&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h2 id=&quot;xian-cheng-chi&quot;&gt;线程池&lt;&#x2F;h2&gt;
+&lt;h3 id=&quot;executorde-lei-xing&quot;&gt;Executor的类型&lt;&#x2F;h3&gt;
+&lt;p&gt;Executor 管理多个异步任务的执行，而无需程序员显式地管理线程的生命周期。这里的异步是指多个任务的执行互不干扰，不需要进行同步操作。
+主要有三种Executor：&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;CachedThreadPool：一个任务创建一个线程&lt;&#x2F;li&gt;
+&lt;li&gt;FixedThreadPool：所有任务只能使用固定大小的线程&lt;&#x2F;li&gt;
+&lt;li&gt;SingleThreadExecutor：相当于大小为 1 的 FixedThreadPool&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h3 id=&quot;executorde-zhong-duan-cao-zuo&quot;&gt;Executor的中断操作&lt;&#x2F;h3&gt;
+&lt;p&gt;调用 Executor 的 shutdown() 方法会等待线程都执行完毕之后再关闭，但是如果调用的是 shutdownNow() 方法，则相当于调用每个线程的 interrupt() 方法&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;java&quot; style=&quot;background-color:#2e3440;color:#d8dee9;&quot; class=&quot;language-java &quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;private static final int &lt;&#x2F;span&gt;&lt;span&gt;CORE_POOL_SIZE &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;5&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;private static final int &lt;&#x2F;span&gt;&lt;span&gt;MAX_POOL_SIZE &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;10&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;private static final int &lt;&#x2F;span&gt;&lt;span&gt;QUEUE_CAPACITY &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;100&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;private static final &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;Long &lt;&#x2F;span&gt;&lt;span&gt;KEEP_ALIVE_TIME &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;L&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;public static&lt;&#x2F;span&gt;&lt;span&gt; void &lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;main&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;String&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;[]&lt;&#x2F;span&gt;&lt;span&gt; args) {
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#616e88;&quot;&gt;&#x2F;&#x2F;使用阿里巴巴推荐的创建线程池的方式
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#616e88;&quot;&gt;&#x2F;&#x2F;通过ThreadPoolExecutor构造函数自定义参数创建
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;ThreadPoolExecutor&lt;&#x2F;span&gt;&lt;span&gt; executor &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;= new &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;ThreadPoolExecutor&lt;&#x2F;span&gt;&lt;span&gt;(
+&lt;&#x2F;span&gt;&lt;span&gt;            CORE_POOL_SIZE&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;,
+&lt;&#x2F;span&gt;&lt;span&gt;            MAX_POOL_SIZE&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;,
+&lt;&#x2F;span&gt;&lt;span&gt;            KEEP_ALIVE_TIME&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;,
+&lt;&#x2F;span&gt;&lt;span&gt;            &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;TimeUnit&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span&gt;SECONDS&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;,
+&lt;&#x2F;span&gt;&lt;span&gt;            &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;new &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;ArrayBlockingQueue&lt;&#x2F;span&gt;&lt;span&gt;&amp;lt;&amp;gt;(QUEUE_CAPACITY)&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;,
+&lt;&#x2F;span&gt;&lt;span&gt;            &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;new &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;ThreadPoolExecutor&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;CallerRunsPolicy&lt;&#x2F;span&gt;&lt;span&gt;())&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;如果只想中断 Executor 中的一个线程，可以通过使用 submit() 方法来提交一个线程，它会返回一个 Future&amp;lt;?&amp;gt; 对象，通过调用该对象的 cancel(true) 方法就可以中断线程&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;java&quot; style=&quot;background-color:#2e3440;color:#d8dee9;&quot; class=&quot;language-java &quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;Future&lt;&#x2F;span&gt;&lt;span&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;?&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt; future &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span&gt; executorService&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;submit&lt;&#x2F;span&gt;&lt;span&gt;(() &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;-&amp;gt; &lt;&#x2F;span&gt;&lt;span&gt;{
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#616e88;&quot;&gt;&#x2F;&#x2F; ..
+&lt;&#x2F;span&gt;&lt;span&gt;})&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;future&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;cancel&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;true&lt;&#x2F;span&gt;&lt;span&gt;)&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h2 id=&quot;tong-bu&quot;&gt;同步&lt;&#x2F;h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;线程之间是有共享内存的，为了防止运行时出现数据竞争，Java提供了一系列的工具来解决这个问题&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;h3 id=&quot;synchronized&quot;&gt;Synchronized&lt;&#x2F;h3&gt;
+&lt;p&gt;内置锁，当它用来修饰一个方法或者代码块的时候，能够保证在同一时刻最多只有一个线程执行该段代码，另一个线程必须等待当前线程执行完以后才能执行该段代码（未执行之前，该线程处于阻塞状态）。同时它也是一个可重入锁。&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;同步一个类&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;pre data-lang=&quot;java&quot; style=&quot;background-color:#2e3440;color:#d8dee9;&quot; class=&quot;language-java &quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;public static &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;Singleton &lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;getInstance&lt;&#x2F;span&gt;&lt;span&gt;() {
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;if &lt;&#x2F;span&gt;&lt;span&gt;(singleton &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;== null&lt;&#x2F;span&gt;&lt;span&gt;) {
+&lt;&#x2F;span&gt;&lt;span&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;synchronized &lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;Singleton&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;class&lt;&#x2F;span&gt;&lt;span&gt;) {
+&lt;&#x2F;span&gt;&lt;span&gt;            &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;if &lt;&#x2F;span&gt;&lt;span&gt;(singleton &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;== null&lt;&#x2F;span&gt;&lt;span&gt;) {
+&lt;&#x2F;span&gt;&lt;span&gt;                singleton &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;= new &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;Singleton&lt;&#x2F;span&gt;&lt;span&gt;()&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;            }
+&lt;&#x2F;span&gt;&lt;span&gt;        }
+&lt;&#x2F;span&gt;&lt;span&gt;    }
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;return&lt;&#x2F;span&gt;&lt;span&gt; singleton&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;上述代码作用于整个类，也就是说两个线程调用同一个类的不同对象上的这种同步语句，也会进行同步。(如果锁住this,那么就只有同一个对象的同步语句才会进行同步)&lt;&#x2F;p&gt;
+&lt;ol start=&quot;2&quot;&gt;
+&lt;li&gt;同步一个方法&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;pre data-lang=&quot;java&quot; style=&quot;background-color:#2e3440;color:#d8dee9;&quot; class=&quot;language-java &quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;public synchronized&lt;&#x2F;span&gt;&lt;span&gt; void &lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;func &lt;&#x2F;span&gt;&lt;span&gt;() {
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#616e88;&quot;&gt;&#x2F;&#x2F; ...
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;作用于同一个对象。&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;reentrantlock&quot;&gt;ReentrantLock&lt;&#x2F;h3&gt;
+&lt;p&gt;ReentrantLock 是 java.util.concurrent（J.U.C）包中的锁&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;java&quot; style=&quot;background-color:#2e3440;color:#d8dee9;&quot; class=&quot;language-java &quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;public class &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;LockExample &lt;&#x2F;span&gt;&lt;span&gt;{
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;private &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;Lock &lt;&#x2F;span&gt;&lt;span&gt;lock &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;= new &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;ReentrantLock&lt;&#x2F;span&gt;&lt;span&gt;()&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;public void &lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;func&lt;&#x2F;span&gt;&lt;span&gt;() {
+&lt;&#x2F;span&gt;&lt;span&gt;        lock&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;lock&lt;&#x2F;span&gt;&lt;span&gt;()&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;try &lt;&#x2F;span&gt;&lt;span&gt;{
+&lt;&#x2F;span&gt;&lt;span&gt;            &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;for &lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;int&lt;&#x2F;span&gt;&lt;span&gt; i &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;&lt;&#x2F;span&gt;&lt;span&gt; i &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;&amp;lt; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;10&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;&lt;&#x2F;span&gt;&lt;span&gt; i&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;++&lt;&#x2F;span&gt;&lt;span&gt;) {
+&lt;&#x2F;span&gt;&lt;span&gt;                &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;System&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span&gt;out&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;print&lt;&#x2F;span&gt;&lt;span&gt;(i &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;+ &lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&amp;quot; &amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;)&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;            }
+&lt;&#x2F;span&gt;&lt;span&gt;        } &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;finally &lt;&#x2F;span&gt;&lt;span&gt;{
+&lt;&#x2F;span&gt;&lt;span&gt;            &lt;&#x2F;span&gt;&lt;span style=&quot;color:#616e88;&quot;&gt;&#x2F;&#x2F; 确保释放锁，从而避免发生死锁
+&lt;&#x2F;span&gt;&lt;span&gt;            lock&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;unlock&lt;&#x2F;span&gt;&lt;span&gt;()&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;        }
+&lt;&#x2F;span&gt;&lt;span&gt;    }
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h3 id=&quot;bi-jiao&quot;&gt;比较&lt;&#x2F;h3&gt;
+&lt;ol&gt;
+&lt;li&gt;锁的实现
+synchronized 是 JVM 实现的，而 ReentrantLock 是 JDK 实现的。&lt;&#x2F;li&gt;
+&lt;li&gt;性能
+新版本 Java 对 synchronized 进行了很多优化，例如自旋锁等，synchronized 与 ReentrantLock 大致相同。&lt;&#x2F;li&gt;
+&lt;li&gt;等待可中断
+当持有锁的线程长期不释放锁的时候，正在等待的线程可以选择放弃等待，改为处理其他事情。ReentrantLock 可中断，而 synchronized 不行。&lt;&#x2F;li&gt;
+&lt;li&gt;公平锁
+公平锁是指多个线程在等待同一个锁时，必须按照申请锁的时间顺序来依次获得锁。
+公平锁将由于在挂起线程和恢复线程时存在的开销而极大的降低效率。
+而非公平锁由于是在请求时锁已经为可用状态就直接获取，不需要进行什么额外的操作，因此效率更高。
+synchronized 中的锁是非公平的，ReentrantLock 默认情况下也是非公平的，但是也可以是公平的。&lt;&#x2F;li&gt;
+&lt;li&gt;锁绑定多个条件
+一个 ReentrantLock 可以同时绑定多个 Condition 对象。&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;h2 id=&quot;xian-cheng-zhi-jian-de-xie-zuo&quot;&gt;线程之间的协作&lt;&#x2F;h2&gt;
+&lt;p&gt;当多个线程可以一起工作去解决某个问题时，如果某些部分必须在其它部分之前完成，那么就需要对线程进行协调。&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;join&quot;&gt;join()&lt;&#x2F;h3&gt;
+&lt;p&gt;在线程中调用另一个线程的 join() 方法，会将当前线程挂起，而不是忙等待，直到目标线程结束。&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;wait-notify-notifyall&quot;&gt;wait()  &#x2F; notify() &#x2F;  notifyAll()&lt;&#x2F;h3&gt;
+&lt;ul&gt;
+&lt;li&gt;调用 wait() 使得线程等待某个条件满足，线程在等待时会被挂起，当其他线程的运行使得这个条件满足时，其它线程会调用 notify() 或者 notifyAll() 来唤醒挂起的线程。&lt;&#x2F;li&gt;
+&lt;li&gt;它们都属于 Object 的一部分，而不属于 Thread。&lt;&#x2F;li&gt;
+&lt;li&gt;只能用在同步方法或者同步控制块中使用，否则会在运行时抛出 IllegalMonitorStateException。&lt;&#x2F;li&gt;
+&lt;li&gt;使用 wait() 挂起期间，线程会释放锁。这是因为，如果没有释放锁，那么其它线程就无法进入对象的同步方法或者同步控制块中，那么就无法执行 notify() 或者 notifyAll() 来唤醒挂起的线程，造成死锁。&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h3 id=&quot;wait-he-sleep-de-qu-bie&quot;&gt;wait() 和 sleep() 的区别&lt;&#x2F;h3&gt;
+&lt;ul&gt;
+&lt;li&gt;wait() 是 Object 的方法，而 sleep() 是 Thread 的静态方法。&lt;&#x2F;li&gt;
+&lt;li&gt;wait() 会释放锁，sleep() 不会。&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h3 id=&quot;await-signal-signalall&quot;&gt;await() &#x2F; signal() &#x2F; signalAll()&lt;&#x2F;h3&gt;
+&lt;ul&gt;
+&lt;li&gt;java.util.concurrent 类库中提供了 Condition 类来实现线程之间的协调，可以在 Condition 上调用 await() 方法使线程等待，其它线程调用 signal() 或 signalAll() 方法唤醒等待的线程。&lt;&#x2F;li&gt;
+&lt;li&gt;相比于 wait() 这种等待方式，await() 可以指定等待的条件，因此更加灵活。&lt;&#x2F;li&gt;
+&lt;li&gt;使用 Lock 来获取一个 Condition 对象。&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h2 id=&quot;xiao-jie&quot;&gt;小结&lt;&#x2F;h2&gt;
+&lt;p&gt;这次总结了线程的基本概念，以及锁的运用，下次介绍下Java并发编程的工具箱😄&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;can-kao&quot;&gt;参考&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;《Java并发编程实战》&lt;&#x2F;li&gt;
+&lt;li&gt;《Java核心技术（卷一）》第十四章&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;CyC2018&#x2F;CS-Notes&#x2F;blob&#x2F;master&#x2F;notes&#x2F;Java%20%E5%B9%B6%E5%8F%91.md&quot;&gt;CS-NOTES&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
+    </entry>
+</feed>
