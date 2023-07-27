@@ -1,8 +1,8 @@
 base_url = "https://nova-me.github.io"
-title = "anemone"
-description = "Nearly no-Javascript, efficient, minimal theme."
+title = "NOVA-ME"
+description = "The road is life."
 default_language = "en"
-theme = "anemone"
+theme = "zola-everforest"
 compile_sass = false
 minify_html = true
 generate_feed = true
@@ -33,4 +33,6 @@ header_nav = [
     { name = "/home/", url = "/" },
     { name = "/about/", url = "/about" },
     { name = "/blog/", url = "/blog" },
+    { name = "/tags/", url = "/tags" },
+
 ]

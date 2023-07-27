@@ -1,5 +1,5 @@
 +++
-paginate_by = 15
+paginate_by = 5
 path = "blog"
 title = "All blog posts"
 sort_by = "date"
