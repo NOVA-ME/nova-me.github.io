@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>NOVA-ME - MySQL</title>
+    <subtitle>The road is life.</subtitle>
+    <link href="https://nova-me.github.io/tags/mysql/atom.xml" rel="self" type="application/atom+xml"/>
+    <link href="https://nova-me.github.io"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2018-08-20T00:00:00+00:00</updated>
+    <id>https://nova-me.github.io/tags/mysql/atom.xml</id>
+    <entry xml:lang="en">
+        <title>MySQL常用知识整理</title>
+        <published>2018-08-20T00:00:00+00:00</published>
+        <updated>2018-08-20T00:00:00+00:00</updated>
+        <author>
+          <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://nova-me.github.io/posts/mysqlchang-shi-zheng-li/" type="text/html"/>
+        <id>https://nova-me.github.io/posts/mysqlchang-shi-zheng-li/</id>
+        <content type="html">&lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;</content>
+    </entry>
+</feed>
