@@ -1,9 +1,4 @@
 +++
+title = "The road is life."
+description = "Be kind, for everyone you meet is fighting a harder battle. ---- Plato"
 +++
-## Article
-  - 🔥 [Rust-lang](./blog/rust)
-  - 📺 [Java](./blog/java)
-
-## Find me
-  - Email: [2287861912@qq.com](2287861912@qq.com)
-  - Github: [nova-me@github.com](https://github.com/nova-me)

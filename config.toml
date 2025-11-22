@@ -2,18 +2,29 @@ base_url = "https://nova-me.github.io"
 title = "NOVA-ME"
 description = "The road is life."
 default_language = "en"
-theme = "zola-everforest"
-compile_sass = false
+theme = "DeepThought"
+compile_sass = true
 minify_html = true
-generate_feed = true
-taxonomies = [{ name = "tags" }]
+taxonomies = [
+    { name = "categories", feed = true, paginate_by = 10 },
+    { name = "tags", feed = true, paginate_by = 10 },
+]
+build_search_index = true
 
 [markdown]
+highlight_code = true
+extra_syntaxes = []
+highlight_theme = "one-dark"
 render_emoji = true
 external_links_target_blank = true
-smart_punctuation = true
-highlight_code = true
-highlight_theme = "nord"
+external_links_no_follow = true
+external_links_no_referrer = true
+smart_punctuation = false
+[search]
+include_title = true
+include_description = true
+include_path = true
+include_content = true
 [slugify]
 paths = "on"
 taxonomies = "on"
@@ -22,17 +33,39 @@ anchors = "on"
 [link_checker]
 internal_level = "warn"
 
+
+# Enable external libraries
 [extra]
-author = "NOVA-ME"
-favicon = "favicon.ico"
-image = ""
-list_pages = false
-twitter_card = true
+katex.enabled = true
+katex.auto_render = true
 
-header_nav = [
-    { name = "/home/", url = "/" },
-    { name = "/about/", url = "/about" },
-    { name = "/blog/", url = "/blog" },
-    { name = "/tags/", url = "/tags" },
+chart.enabled = true
+mermaid.enabled = true
+galleria.enabled = true
 
+navbar_items = [
+ { code = "en", nav_items = [
+  { url = "$BASE_URL/", name = "Home" },
+  { url = "$BASE_URL/posts", name = "Posts" },
+  { url = "$BASE_URL/tags", name = "Tags" },
+  { url = "$BASE_URL/categories", name = "Categories" },
+ ]},
 ]
+
+# Add links to favicon, you can use https://realfavicongenerator.net/ to generate favicon for your site
+[extra.favicon]
+favicon_16x16 = "/icons/whatsoo.ico"
+favicon_32x32 = "/icons/whatsoo.ico"
+apple_touch_icon = "/icons/whatsoo.ico"
+safari_pinned_tab = "/icons/whatsoo.ico"
+webmanifest = "/icons/whatsoo.ico"
+
+# Author details
+[extra.author]
+name = "NOVA-ME"
+avatar = "/images/avatar.png"
+
+# Social links
+[extra.social]
+email = "zsl19951210@gmail.com"
+github = "NOVA-ME"
