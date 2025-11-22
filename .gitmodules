@@ -1,6 +1,3 @@
 [submodule "themes/zola-everforest"]
 	path = themes/zola-everforest
 	url = https://github.com/NOVA-ME/zola-everforest.git
-[submodule "themes/DeepThought"]
-	path = themes/DeepThought
-	url = https://github.com/RatanShreshtha/DeepThought.git
